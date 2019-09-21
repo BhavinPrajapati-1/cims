@@ -1,0 +1,5 @@
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csprojAssemblyReference.cache
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\MainWindow.g.cs
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\App.g.cs
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS_MarkupCompile.cache
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS_MarkupCompile.lref
