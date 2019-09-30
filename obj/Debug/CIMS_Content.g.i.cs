@@ -8,12 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/bom.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/database.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/employee.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/product-maintenance.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/reports.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/supplier.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/transactions.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/users.png")]
 
 

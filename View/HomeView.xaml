@@ -26,56 +26,84 @@
             <RowDefinition Height="0.125*"/>
         </Grid.RowDefinitions>
 
-        <Controls:Tile Title="Employee" Grid.Column="1" Grid.Row="2" 
+        <Controls:Tile Title="" Grid.Column="1" Grid.Row="2" 
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/employee.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/employee.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Employee" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="Supplier" Grid.Column="2" Grid.Row="2"
+        <Controls:Tile Title="" Grid.Column="2" Grid.Row="2"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/supplier.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/supplier.png" 
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Supplier" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-
-        <Controls:Tile Title="House Units" Grid.Column="3" Grid.Row="2"
+        <Controls:Tile Title="" Grid.Column="3" Grid.Row="2"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/house.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/house.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="House Units" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-
-        <Controls:Tile Title="Product Maintenance" Grid.Column="1" Grid.Row="3"
+        <Controls:Tile Title="" Grid.Column="1" Grid.Row="3"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/product-maintenance.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/product-maintenance.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Product Maintenance" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="Bill of Materials" Grid.Column="2" Grid.Row="3"
+        <Controls:Tile Title="" Grid.Column="2" Grid.Row="3"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/bom.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/bom.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Bill of Materials" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="Transactions" Grid.Column="3" Grid.Row="3"
+        <Controls:Tile Title="" Grid.Column="3" Grid.Row="3"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/transactions.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/transactions.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Transactions" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-
-
-        <Controls:Tile Title="Reports" Grid.Column="1" Grid.Row="4"
+        <Controls:Tile Title="" Grid.Column="1" Grid.Row="4"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/reports.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/reports.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Reports" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="Manage Database" Grid.Column="2" Grid.Row="4"
+        <Controls:Tile Title="" Grid.Column="2" Grid.Row="4"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
-                <Image Source="/CIMS;component/resources/database.png" Stretch="Fill" Margin="40"/>
+                <Image Source="/CIMS;component/resources/database.png"
+                       Stretch="Fill" Margin="20,20,20,40"/>
+                <Label Content="Manage Database" FontSize="20" Foreground="White"
+                       FontWeight="Bold" VerticalContentAlignment="Bottom"
+                       HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
 
