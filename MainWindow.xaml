@@ -16,9 +16,9 @@
     </Window.Resources>
     
     <Grid>
-        <app:HomeView Visibility="Visible"/>
+        <app:HomeView Visibility="Hidden"/>
         <app:UserView Visibility="Hidden"/>
-        <app:EmployeeView Visibility="Hidden"/>
+        <app:EmployeeView Visibility="Visible"/>
     </Grid>
 
     <Controls:MetroWindow.Flyouts>
@@ -33,22 +33,30 @@
                     <Label Content="Developer" 
                         HorizontalAlignment="Center" FontWeight="Light" FontSize="15"/>
                 </WrapPanel>
-
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
+    
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <ToggleButton IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
                 <ToggleButton.Content>
                     <Viewbox Width="30" Height="30">
                         <Canvas Width="24" Height="24">
-                            <Path Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" Fill="Black" />
+                            <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" Fill="Black" />
                         </Canvas>
                     </Viewbox>
                 </ToggleButton.Content>
             </ToggleButton>
+        <ToggleButton IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
+            <ToggleButton.Content>
+                <Viewbox Width="30" Height="30">
+                    <Canvas Width="24" Height="24">
+                        <Path Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" Fill="Black" />
+                    </Canvas>
+                </Viewbox>
+            </ToggleButton.Content>
+        </ToggleButton>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-
 </Controls:MetroWindow>

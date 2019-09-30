@@ -26,7 +26,7 @@
             <RowDefinition Height="0.125*"/>
         </Grid.RowDefinitions>
 
-        <Controls:Tile Title="" Grid.Column="1" Grid.Row="2" 
+        <Controls:Tile x:Name="tileEmployee" Grid.Column="1" Grid.Row="2" 
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/employee.png"
@@ -36,7 +36,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="2" Grid.Row="2"
+        <Controls:Tile x:Name="tileSupplier" Grid.Column="2" Grid.Row="2"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/supplier.png" 
@@ -46,7 +46,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="3" Grid.Row="2"
+        <Controls:Tile x:Name="tileUnits" Grid.Column="3" Grid.Row="2"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/house.png"
@@ -56,7 +56,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="1" Grid.Row="3"
+        <Controls:Tile x:Name="tileProduct" Grid.Column="1" Grid.Row="3"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/product-maintenance.png"
@@ -66,7 +66,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="2" Grid.Row="3"
+        <Controls:Tile x:Name="tileBOM" Grid.Column="2" Grid.Row="3"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/bom.png"
@@ -76,7 +76,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="3" Grid.Row="3"
+        <Controls:Tile x:Name="tileTransaction"  Grid.Column="3" Grid.Row="3"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/transactions.png"
@@ -86,7 +86,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="1" Grid.Row="4"
+        <Controls:Tile x:Name="tileReports" Grid.Column="1" Grid.Row="4"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/reports.png"
@@ -96,7 +96,7 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Title="" Grid.Column="2" Grid.Row="4"
+        <Controls:Tile  x:Name="tileDatabase" Grid.Column="2" Grid.Row="4"
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>
                 <Image Source="/CIMS;component/resources/database.png"
@@ -106,6 +106,5 @@
                        HorizontalContentAlignment="Center" />
             </Grid>
         </Controls:Tile>
-
     </Grid>
 </UserControl>

@@ -18,10 +18,10 @@ namespace CIMS
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            PromptSuccesfulLogIn();
-            this.Close();
+            //PromptSuccesfulLogIn();
             MainWindow mainWindow = new MainWindow();
             mainWindow.ShowDialog();
+            this.Close();
         }
     }
 }
