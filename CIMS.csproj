@@ -43,6 +43,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.96.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
@@ -65,9 +69,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LogInWindow.xaml.cs">
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModel\Commands\CreateCommand.cs" />
+    <Compile Include="ViewModel\DBConnection\DataQuery.cs" />
+    <Compile Include="ViewModel\DBConnection\DataQueryParameters.cs" />
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\PropertyChangeHandler.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\LogInView.xaml.cs">
+      <DependentUpon>LogInView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogInWindow.xaml.cs">
       <DependentUpon>LogInWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\DBConnection\DatabaseController.cs" />
     <Compile Include="View\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
     </Compile>
@@ -77,14 +93,21 @@
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SupplierView.xaml.cs">
+      <DependentUpon>SupplierView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
-    <Page Include="LogInWindow.xaml">
+    <Page Include="View\LogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\LogInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -92,7 +115,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -105,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SupplierView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,10 +179,7 @@
     <Resource Include="Resources\supplier.png" />
     <Resource Include="Resources\transactions.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\user.png" />
   </ItemGroup>

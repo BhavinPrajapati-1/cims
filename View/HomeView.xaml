@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <Controls:Tile x:Name="tileEmployee" Grid.Column="1" Grid.Row="2" 
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileEmployee_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/employee.png"
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -37,7 +37,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile x:Name="tileSupplier" Grid.Column="2" Grid.Row="2"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileSupplier_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/supplier.png" 
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -47,7 +47,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile x:Name="tileUnits" Grid.Column="3" Grid.Row="2"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileUnits_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/house.png"
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -57,7 +57,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile x:Name="tileProduct" Grid.Column="1" Grid.Row="3"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileProduct_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/product-maintenance.png"
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -67,7 +67,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile x:Name="tileBOM" Grid.Column="2" Grid.Row="3"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileBOM_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/bom.png"
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -77,7 +77,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile x:Name="tileTransaction"  Grid.Column="3" Grid.Row="3"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileTransaction_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/transactions.png"
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -87,7 +87,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile x:Name="tileReports" Grid.Column="1" Grid.Row="4"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileReports_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/reports.png"
                        Stretch="Fill" Margin="20,20,20,40"/>
@@ -97,7 +97,7 @@
             </Grid>
         </Controls:Tile>
         <Controls:Tile  x:Name="tileDatabase" Grid.Column="2" Grid.Row="4"
-                       Width="Auto" Height="Auto"  Margin="15">
+                       Width="Auto" Height="Auto"  Margin="15" Click="TileDatabase_Click">
             <Grid>
                 <Image Source="/CIMS;component/resources/database.png"
                        Stretch="Fill" Margin="20,20,20,40"/>

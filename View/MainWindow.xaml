@@ -6,19 +6,22 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:CIMS"
         xmlns:app="clr-namespace:CIMS.View"
-        mc:Ignorable="d" WindowState="Maximized" WindowStartupLocation="CenterScreen"
-        Title="Inventory Management System" MinHeight="800" MinWidth="1000" 
-                      Height="800" Width="1000" Background="Beige">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Inventory Management System" MinHeight="900" MinWidth="1600" 
+        Height="900" Width="1600" Background="Beige" Loaded="MetroWindow_Loaded">
     <Window.Resources>
         <app:HomeView x:Key="homeView"/>
         <app:UserView x:Key="userView"/>
         <app:EmployeeView x:Key="employeeView"/>
     </Window.Resources>
-    
+
     <Grid>
-        <app:HomeView Visibility="Hidden"/>
-        <app:UserView Visibility="Hidden"/>
-        <app:EmployeeView Visibility="Visible"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <app:HomeView Visibility="Visible" Grid.Row="0"/>
+        <app:UserView Visibility="Hidden" Grid.Row="0"/>
+        <app:EmployeeView Visibility="Hidden" Grid.Row="0"/>
     </Grid>
 
     <Controls:MetroWindow.Flyouts>
@@ -26,7 +29,7 @@
             <Controls:Flyout x:Name="userFlyOut" Position="Right" Width="400">
                 <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0">
                     <StackPanel VerticalAlignment="Center">
-                        <Image Source="Resources/user.png" Height="100"/>
+                        <Image Source="/CIMS;component/resources/user.png" Height="100"/>
                     </StackPanel>
                     <Label Content="Villanueva, Shane A." 
                         HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"/>
@@ -36,10 +39,10 @@
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
-    
+
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <ToggleButton IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
+            <ToggleButton IsChecked="{Binding ElementName=homeView, Path=Visibility}" Cursor="Hand">
                 <ToggleButton.Content>
                     <Viewbox Width="30" Height="30">
                         <Canvas Width="24" Height="24">
@@ -48,15 +51,15 @@
                     </Viewbox>
                 </ToggleButton.Content>
             </ToggleButton>
-        <ToggleButton IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
-            <ToggleButton.Content>
-                <Viewbox Width="30" Height="30">
-                    <Canvas Width="24" Height="24">
-                        <Path Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" Fill="Black" />
-                    </Canvas>
-                </Viewbox>
-            </ToggleButton.Content>
-        </ToggleButton>
+            <ToggleButton IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
+                <ToggleButton.Content>
+                    <Viewbox Width="30" Height="30">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" Fill="Black" />
+                        </Canvas>
+                    </Viewbox>
+                </ToggleButton.Content>
+            </ToggleButton>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 </Controls:MetroWindow>

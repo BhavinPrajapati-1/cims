@@ -5,38 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:CIMS" mc:Ignorable="d"
-        Title="Sign in" Height="600" Width="600" Background="Beige">
+        Title="Sign in" Height="600" Width="600" Background="Beige" Loaded="MetroWindow_Loaded">
     <Grid>
-        <WrapPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" Margin="0,50,0,0"
+        <WrapPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" Margin="0,25,0,0"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel VerticalAlignment="Center">
                 <Image Source="/CIMS;component/Resources/user.png" Height="200"/>
             </StackPanel>
             <Label x:Name="logInMessage" Margin="0,5,0,5"  Content="User ID or password entered is incorrect."
-                   HorizontalContentAlignment="Center" FontSize="15" Foreground="Red"/>
-            <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
-                <Viewbox Width="48" Height="48" Margin="0,0,20,0">
-                    <Canvas Width="24" Height="24">
-                        <Path Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" Fill="Black" />
-                    </Canvas>
-                </Viewbox>
-                <TextBox x:Name="userID" 
+                   HorizontalContentAlignment="Center" FontSize="15" Foreground="Red" Visibility="Hidden"/>
+            <TextBox x:Name="userID" Margin="10"
                          BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="25" Width="400"
                          Controls:TextBoxHelper.Watermark="User ID"
                          Controls:TextBoxHelper.ClearTextButton="True"/>
-            </WrapPanel>
-
-            <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,30">
-                <Viewbox Width="48" Height="48" Margin="0,0,20,0">
-                    <Canvas Width="24" Height="24">
-                        <Path Data="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z" Fill="Black" />
-                    </Canvas>
-                </Viewbox>
-                <PasswordBox x:Name="password"
+            <PasswordBox x:Name="password" Margin="0,0,0,30"
                     BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="25" Width="400"
                      Controls:TextBoxHelper.ClearTextButton="True"
                      Controls:TextBoxHelper.Watermark="Password"/>
-            </WrapPanel>
 
             <Button x:Name="logInButton"  Height="65" Width="65" BorderBrush="Green" BorderThickness="5"
                 Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Click="LogInButton_Click">
