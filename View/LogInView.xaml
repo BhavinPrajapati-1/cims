@@ -4,9 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CIMS.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
-            
+        <WrapPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" Margin="0,25,0,0"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="/CIMS;component/Resources/user.png" Height="200"/>
+            </StackPanel>
+            <Label x:Name="logInMessage" Margin="0,5,0,5"  Content="User ID or password entered is incorrect."
+                   HorizontalContentAlignment="Center" FontSize="15" Foreground="Red" Visibility="Hidden"/>
+            <TextBox x:Name="userID" Margin="10"
+                         BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="25" Width="400"
+                         Controls:TextBoxHelper.Watermark="User ID"
+                         Controls:TextBoxHelper.ClearTextButton="True"/>
+            <PasswordBox x:Name="password" Margin="0,0,0,30"
+                    BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="25" Width="400"
+                     Controls:TextBoxHelper.ClearTextButton="True"
+                     Controls:TextBoxHelper.Watermark="Password"/>
+
+            <Button x:Name="logInButton"  Height="65" Width="65" BorderBrush="Green" BorderThickness="5"
+                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Click="LogInButton_Click">
+                <Viewbox Width="55" Height="55">
+                    <Canvas Width="24" Height="24">
+                        <Path Data="M4,15V9H12V4.16L19.84,12L12,19.84V15H4Z" Fill="Green" />
+                    </Canvas>
+                </Viewbox>
+            </Button>
+        </WrapPanel>
+
     </Grid>
 </UserControl>

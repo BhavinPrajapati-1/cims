@@ -7,6 +7,8 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\bin\Debug\System.Windows.Interactiv
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\bin\Debug\ControlzEx.pdb
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\bin\Debug\MahApps.Metro.pdb
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\bin\Debug\MahApps.Metro.xml
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csprojAssemblyReference.cache
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\LogInView.g.cs
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\LogInWindow.g.cs
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\MainWindow.g.cs
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\DataGridView.g.cs
@@ -19,6 +21,7 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\GeneratedInternalTypeHelp
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS_MarkupCompile.cache
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS_MarkupCompile.lref
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\App.baml
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\LogInView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\LogInWindow.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\MainWindow.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\DataGridView.baml
@@ -33,5 +36,5 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.CoreCompileIn
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.CopyComplete
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.exe
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.pdb
-D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\LogInView.g.cs
-D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\View\LogInView.baml
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\UnitView.g.cs
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\UnitView.baml

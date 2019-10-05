@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:CIMS"
+        xmlns:uc="clr-namespace:CIMS.View"
         xmlns:app="clr-namespace:CIMS.View"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Inventory Management System" MinHeight="900" MinWidth="1600" 
+        Title="Inventory Management System"  
         Height="900" Width="1600" Background="Beige" Loaded="MetroWindow_Loaded">
     <Window.Resources>
+        <app:LogInView x:Key="logInView"/>
         <app:HomeView x:Key="homeView"/>
         <app:UserView x:Key="userView"/>
         <app:EmployeeView x:Key="employeeView"/>
@@ -19,11 +21,19 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <app:HomeView Visibility="Visible" Grid.Row="0"/>
-        <app:UserView Visibility="Hidden" Grid.Row="0"/>
-        <app:EmployeeView Visibility="Hidden" Grid.Row="0"/>
-    </Grid>
+        <!--<app:LogInView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <app:HomeView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <app:UserView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <app:EmployeeView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>-->
 
+        <uc:LogInView x:Name="ucLogIn" Visibility="Visible"/>
+        <uc:HomeView x:Name="ucHome" Visibility="Hidden"/>
+        <uc:UserView x:Name="ucUser" Visibility="Hidden"/>
+        <uc:EmployeeView x:Name="ucEmployee" Visibility="Hidden"/>
+        <uc:SupplierView x:Name="ucSupplier" Visibility="Hidden"/>
+    </Grid>
+    
+    
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
             <Controls:Flyout x:Name="userFlyOut" Position="Right" Width="400">
@@ -42,7 +52,7 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <ToggleButton IsChecked="{Binding ElementName=homeView, Path=Visibility}" Cursor="Hand">
+            <ToggleButton x:Name="homeButton" IsChecked="{Binding ElementName=homeView, Path=Visibility}" Cursor="Hand" Checked="HomeButton_Checked" Click="HomeButton_Click">
                 <ToggleButton.Content>
                     <Viewbox Width="30" Height="30">
                         <Canvas Width="24" Height="24">
@@ -51,7 +61,7 @@
                     </Viewbox>
                 </ToggleButton.Content>
             </ToggleButton>
-            <ToggleButton IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
+            <ToggleButton x:Name="profileButton" IsChecked="{Binding ElementName=userFlyOut, Path=IsOpen}" Cursor="Hand">
                 <ToggleButton.Content>
                     <Viewbox Width="30" Height="30">
                         <Canvas Width="24" Height="24">

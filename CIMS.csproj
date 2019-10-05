@@ -71,6 +71,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="UnitView.xaml.cs">
+      <DependentUpon>UnitView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Commands\CreateCommand.cs" />
     <Compile Include="ViewModel\DBConnection\DataQuery.cs" />
     <Compile Include="ViewModel\DBConnection\DataQueryParameters.cs" />
@@ -99,6 +102,10 @@
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
+    <Page Include="UnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

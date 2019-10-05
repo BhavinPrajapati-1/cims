@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:CIMS" mc:Ignorable="d"
-        Title="Sign in" Height="600" Width="600" Background="Beige" Loaded="MetroWindow_Loaded">
+        Title="Sign in" Height="600" Width="600" Background="Beige">
     <Grid>
         <WrapPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" Margin="0,25,0,0"
                     HorizontalAlignment="Center" VerticalAlignment="Center">

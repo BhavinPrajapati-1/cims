@@ -6,28 +6,22 @@ namespace CIMS.View
 {
     public partial class HomeView : UserControl
     {
-        private MainWindow main = (MainWindow)Application.Current.MainWindow;
+        private MainWindow main;
         public HomeView()
         {
             InitializeComponent();
-            //main = (MainForm)Application.Current.MainWindow;//Window.GetWindow();
+            main = (MainWindow)Application.Current.MainWindow;
         }
         private void TileEmployee_Click(object sender, RoutedEventArgs e)
         {
-            //var main = Window.GetWindow(Application.Current.MainWindow);//Application.Current.MainWindow;
-            EmployeeView employee = new EmployeeView();
-            main.employee = employee;
-            main.employee.Visibility = Visibility.Visible;
             this.Visibility = Visibility.Hidden;
+            main.ucEmployee.Visibility = Visibility.Visible;
         }   
 
         private void TileSupplier_Click(object sender, RoutedEventArgs e)
         {
-            var main = (MainWindow)Application.Current.MainWindow;
-            SupplierView supplier = new SupplierView();
-            main.supplier = supplier;
-            main.supplier.Visibility = Visibility.Visible;
             this.Visibility = Visibility.Hidden;
+            main.ucSupplier.Visibility = Visibility.Visible;
         }
 
         private void TileUnits_Click(object sender, RoutedEventArgs e)
