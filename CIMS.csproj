@@ -71,25 +71,15 @@
     </ApplicationDefinition>
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="UnitView.xaml.cs">
-      <DependentUpon>UnitView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\Commands\CreateCommand.cs" />
     <Compile Include="ViewModel\DBConnection\DataQuery.cs" />
-    <Compile Include="ViewModel\DBConnection\DataQueryParameters.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PropertyChangeHandler.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="View\LogInView.xaml.cs">
       <DependentUpon>LogInView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LogInWindow.xaml.cs">
-      <DependentUpon>LogInWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\DBConnection\DatabaseController.cs" />
-    <Compile Include="View\DataGridView.xaml.cs">
-      <DependentUpon>DataGridView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
@@ -99,18 +89,19 @@
     <Compile Include="View\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UnitView.xaml.cs">
+      <DependentUpon>UnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unit\UnitListView.xaml.cs">
+      <DependentUpon>UnitListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unit\UnitProgressView.xaml.cs">
+      <DependentUpon>UnitProgressView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
-    <Page Include="UnitView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\LogInView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LogInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,10 +117,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\DataGridView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\EmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +126,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Unit\UnitListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Unit\UnitProgressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

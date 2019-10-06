@@ -28,7 +28,11 @@
             <Image Source="/CIMS;component/resources/users.png" Margin="10,0" Height="70"/>
         </WrapPanel>
 
-
+        <DataGrid x:Name="employee" ItemsSource="{Binding EmployeeTable.DefaultView, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Column="1" Grid.Row="1" MinWidth="900" MinHeight="300"
+                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AlternatingRowBackground="LightGray"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False">
+        </DataGrid>
 
         <WrapPanel Grid.Row="2" Grid.Column="1" Margin="30,0"  Orientation="Vertical" HorizontalAlignment="Center">
             <DataGrid>

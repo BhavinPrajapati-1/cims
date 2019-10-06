@@ -13,15 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CIMS.View
+namespace CIMS.View.Unit
 {
-    public partial class SupplierView : UserControl
+    /// <summary>
+    /// Interaction logic for UnitListView.xaml
+    /// </summary>
+    public partial class UnitListView : UserControl
     {
-        private readonly MainWindow main = (MainWindow)Application.Current.MainWindow;
-        public SupplierView()
+        public UnitListView()
         {
             InitializeComponent();
-            this.DataContext = main.viewModel;
         }
     }
 }

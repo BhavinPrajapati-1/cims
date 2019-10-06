@@ -4,36 +4,55 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:CIMS"
+        xmlns:VM="clr-namespace:CIMS.ViewModel"
         xmlns:uc="clr-namespace:CIMS.View"
-        xmlns:app="clr-namespace:CIMS.View"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Inventory Management System"  
-        Height="900" Width="1600" Background="Beige" Loaded="MetroWindow_Loaded">
-    <Window.Resources>
-        <app:LogInView x:Key="logInView"/>
-        <app:HomeView x:Key="homeView"/>
-        <app:UserView x:Key="userView"/>
-        <app:EmployeeView x:Key="employeeView"/>
-    </Window.Resources>
-
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        Title="Inventory Management System" Height="900" Width="1600" 
+        Background="Beige" ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <VM:MainWindowViewModel x:Name="vmMainWindow"/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--<app:LogInView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <app:HomeView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <app:UserView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <app:EmployeeView Visibility="Visible" Grid.Row="0" Grid.ColumnSpan="2"/>-->
+        <Controls:MetroAnimatedTabControl x:Name="mainTab" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
+                Background="Transparent">
+            <Controls:MetroTabItem x:Name="logIn" Visibility="Collapsed">
+                <uc:LogInView x:Name="ucLogIn"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="home" Visibility="Collapsed">
+                <uc:HomeView x:Name="ucHome"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="user" Visibility="Collapsed">
+                <uc:UserView x:Name="ucUser"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="employee" Visibility="Collapsed">
+                <uc:EmployeeView x:Name="ucEmployee"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="supplier" Visibility="Collapsed">
+                <uc:SupplierView x:Name="ucSupplier"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="unit" Visibility="Collapsed">
+                <uc:UnitView  x:Name="ucUnit"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="product" Visibility="Collapsed">
 
-        <uc:LogInView x:Name="ucLogIn" Visibility="Visible"/>
-        <uc:HomeView x:Name="ucHome" Visibility="Hidden"/>
-        <uc:UserView x:Name="ucUser" Visibility="Hidden"/>
-        <uc:EmployeeView x:Name="ucEmployee" Visibility="Hidden"/>
-        <uc:SupplierView x:Name="ucSupplier" Visibility="Hidden"/>
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="bom" Visibility="Collapsed">
+
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="transaction" Visibility="Collapsed">
+
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="report" Visibility="Collapsed">
+
+            </Controls:MetroTabItem>
+            <Controls:MetroTabItem x:Name="database" Visibility="Collapsed">
+
+            </Controls:MetroTabItem>
+        </Controls:MetroAnimatedTabControl>
     </Grid>
-    
-    
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
             <Controls:Flyout x:Name="userFlyOut" Position="Right" Width="400">
@@ -41,18 +60,15 @@
                     <StackPanel VerticalAlignment="Center">
                         <Image Source="/CIMS;component/resources/user.png" Height="100"/>
                     </StackPanel>
-                    <Label Content="Villanueva, Shane A." 
-                        HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"/>
-                    <Label Content="Developer" 
-                        HorizontalAlignment="Center" FontWeight="Light" FontSize="15"/>
+                    <Label Content="{Binding CurrentUser.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"/>
+                    <Label Content="{Binding CurrentUser.AccessType, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Light" FontSize="15"/>
                 </WrapPanel>
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
-
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <ToggleButton x:Name="homeButton" IsChecked="{Binding ElementName=homeView, Path=Visibility}" Cursor="Hand" Checked="HomeButton_Checked" Click="HomeButton_Click">
+            <ToggleButton x:Name="homeButton" Cursor="Hand" Click="HomeButton_Click">
                 <ToggleButton.Content>
                     <Viewbox Width="30" Height="30">
                         <Canvas Width="24" Height="24">
@@ -72,4 +88,6 @@
             </ToggleButton>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
+
 </Controls:MetroWindow>
+

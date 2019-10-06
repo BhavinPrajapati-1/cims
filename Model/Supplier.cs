@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CIMS.ViewModel
+namespace CIMS.Model
 {
-    public class UserViewModel
+    class Supplier
     {
-
     }
 }

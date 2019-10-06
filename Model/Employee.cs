@@ -8,6 +8,13 @@ namespace CIMS.Model
 {
     public class Employee
     {
-
+        public int ID { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public int Position_ID { get; set; }
+        public string ContactNumber { get; set; }
+        public string EmailAddress { get; set; }
+        public string DeleteFlag { get; set; }
     }
 }

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CIMS.View
+namespace CIMS.View.Unit
 {
     /// <summary>
-    /// Interaction logic for DataGridView.xaml
+    /// Interaction logic for UnitProgressViewxaml.xaml
     /// </summary>
-    public partial class DataGridView : UserControl
+    public partial class UnitProgressView : UserControl
     {
-        public DataGridView()
+        public UnitProgressView()
         {
             InitializeComponent();
         }

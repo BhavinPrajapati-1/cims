@@ -1,21 +1,22 @@
-﻿using CIMS.ViewModel.DBConnection;
+﻿using CIMS.ViewModel;
+using CIMS.ViewModel.DBConnection;
 using System.Data;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CIMS.View
 {
     public partial class EmployeeView : UserControl
     {
-        private DataQuery dataQuery = new DataQuery();
+        private readonly MainWindow main = (MainWindow)Application.Current.MainWindow;
+        public EmployeeViewModel employeeVM;
+        
         public EmployeeView()
         {
             InitializeComponent();
+            employeeVM = new EmployeeViewModel();
+            this.DataContext = employeeVM;
         }
 
-        private void UserControl_Initialized(object sender, System.EventArgs e)
-        {
-            //DataTable employeeTable = dataQuery.EmployeeTable();
-            //employee.ItemsSource = employeeTable.AsDataView();
-        }
     }
 }

@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CIMS.View"
              mc:Ignorable="d" 
+             xmlns:VM="clr-namespace:CIMS.ViewModel"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              d:DesignHeight="900" d:DesignWidth="1600">
+    <UserControl.DataContext>
+        <VM:MainWindowViewModel x:Name="vmMainWindow"/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -61,10 +65,10 @@
                         </Viewbox>
                     </Button>
                 </WrapPanel>
-                <DataGrid x:Name="employeeTable" Grid.Column="1" Grid.Row="1" MinWidth="900" MinHeight="300"
+                <DataGrid x:Name="employeeTable" ItemsSource="{Binding SupplierTable.DefaultView, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Column="1" Grid.Row="1" MinWidth="900" MinHeight="300"
                      BorderBrush="Black" BorderThickness="3" Margin="10,0"
                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <!--ItemsSource="{Binding People}">-->
 
             </WrapPanel>
 
