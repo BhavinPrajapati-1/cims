@@ -53,9 +53,9 @@ namespace CIMS.View
             User user = new User();
             user.ID = Convert.ToInt32(thisUser.Rows[0][0].ToString());
             user.Name = thisUser.Rows[0][1].ToString();
-            user.LogIn = this.userID.Text;
+            //user.LogIn = this.userID.Text;
             user.Password = this.password.Password;
-            user.AccessType = thisUser.Rows[0][3].ToString();
+            //user.AccessType = thisUser.Rows[0][3].ToString();
             main.viewModel.CurrentUser = user;
             
         }
