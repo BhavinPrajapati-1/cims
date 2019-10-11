@@ -97,8 +97,12 @@
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\Commands\CreateCommand.cs" />
+    <Compile Include="ViewModel\DatabaseConnection\CRUD\Create.cs" />
+    <Compile Include="ViewModel\DatabaseConnection\CRUD\Delete.cs" />
+    <Compile Include="ViewModel\DatabaseConnection\CRUD\Read.cs" />
     <Compile Include="ViewModel\DatabaseConnection\SqliteDataAccess.cs" />
     <Compile Include="ViewModel\DatabaseConnection\SqliteQuery.cs" />
+    <Compile Include="ViewModel\DatabaseConnection\CRUD\Update.cs" />
     <Compile Include="ViewModel\DBConnection\DataQuery.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
