@@ -93,8 +93,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\BillOfMaterials.cs" />
+    <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\Supplier.cs" />
+    <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\Commands\CreateCommand.cs" />
     <Compile Include="ViewModel\DatabaseConnection\CRUD\Create.cs" />
@@ -103,7 +107,6 @@
     <Compile Include="ViewModel\DatabaseConnection\SqliteDataAccess.cs" />
     <Compile Include="ViewModel\DatabaseConnection\SqliteQuery.cs" />
     <Compile Include="ViewModel\DatabaseConnection\CRUD\Update.cs" />
-    <Compile Include="ViewModel\DBConnection\DataQuery.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PropertyChangeHandler.cs" />
@@ -111,7 +114,6 @@
     <Compile Include="View\LogInView.xaml.cs">
       <DependentUpon>LogInView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\DBConnection\DatabaseController.cs" />
     <Compile Include="View\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>

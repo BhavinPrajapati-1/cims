@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CIMS.Model
+{
+    public class Inventory
+    {
+        public string ItemCode { get; set; }
+        public int Class1_ID { get; set; }
+        public int Class2_ID { get; set; }
+        public int QuantityType_ID { get; set; }
+        public int Barcode { get; set; }
+        public string Description { get; set; }
+        public int Quantity { get; set; }
+
+        public string Headers
+        {
+            get
+            {
+                return "ItemCode,Class1_ID,Class2_ID,QuantityType_ID,Barcode,Description,Quantity";
+            }
+        }
+    }
+}
