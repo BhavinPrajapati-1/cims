@@ -1,5 +1,4 @@
-﻿using CIMS.ViewModel.DBConnection;
-using System.Data;
+﻿using System.Data;
 using System.Windows;
 using MahApps.Metro.Controls.Dialogs;
 using System.Windows.Controls;
@@ -10,11 +9,11 @@ namespace CIMS.View
 {
     public partial class LogInView : UserControl
     {
-        private readonly MainWindow main = (MainWindow)Application.Current.MainWindow;
-        private readonly DataQuery query = new DataQuery();
+        private readonly MainWindow main;
         private DataTable thisUser = new DataTable();
         public LogInView()
         {
+            main = (MainWindow)Application.Current.MainWindow;
             InitializeComponent();
         }
 

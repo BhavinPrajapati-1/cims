@@ -9,6 +9,15 @@ namespace CIMS.ViewModel.DatabaseConnection.CRUD
 {
     public class Read
     {
+        public static List<string> DropdownValue(string tableName)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
+            {
+                string read = "select Name from " + tableName;
+                var output = cnn.Query<string>(read, new DynamicParameters());
+                return output.ToList();
+            }
+        }
         public static List<Employee> Employees()
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))

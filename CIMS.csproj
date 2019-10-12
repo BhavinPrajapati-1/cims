@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\Dropdown.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\BillOfMaterials.cs" />
     <Compile Include="Model\Inventory.cs" />

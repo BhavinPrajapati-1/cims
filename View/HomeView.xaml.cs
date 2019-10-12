@@ -1,5 +1,5 @@
 ﻿using CIMS.ViewModel;
-using CIMS.ViewModel.DBConnection;
+//using CIMS.ViewModel.DBConnection;
 using MahApps.Metro.Controls;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +9,7 @@ namespace CIMS.View
     public partial class HomeView : UserControl
     {
         private MainWindow main = (MainWindow)Application.Current.MainWindow;
-        private DataQuery dataQuery = new DataQuery();
+        //private DataQuery dataQuery = new DataQuery();
         private EmployeeViewModel vmEmployee;
         //private SupplierViewModel vmSupplier;
 

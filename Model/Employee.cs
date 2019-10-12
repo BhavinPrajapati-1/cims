@@ -15,7 +15,6 @@ namespace CIMS.Model
         public int Position_ID { get; set; }
         public string ContactNumber { get; set; }
         public string EmailAddress { get; set; }
-
         public string FullName
         {
             get

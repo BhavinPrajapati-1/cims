@@ -18,9 +18,9 @@ namespace CIMS.ViewModel
         
         public EmployeeViewModel()
         {
-            DataQuery dataQuery = new DataQuery();
-            EmployeeTable = dataQuery.EmployeeTable();
-            PositionList = dataQuery.EmployeePosition();
+            //DataQuery dataQuery = new DataQuery();
+            //EmployeeTable = dataQuery.EmployeeTable();
+            //PositionList = dataQuery.EmployeePosition();
         }
 
         public DataTable EmployeeTable
