@@ -7,7 +7,7 @@ namespace CIMS.ViewModel
 {
     public class EmployeeViewModel : PropertyChangeHandler
     {
-        private DataTable _employees;
+        private List<Employee> _employees;
         private Employee _employee;
         
         public EmployeeViewModel()
@@ -32,12 +32,12 @@ namespace CIMS.ViewModel
         {
             get
             {
-                return Employee;
+                return _employee;
             }
             set
             {
-                if (value == Employee) return;
-                Employee = value;
+                if (value == _employee) return;
+                _employee = value;
                 OnPropertyChanged("SelectedEmployee");
             }
         }
