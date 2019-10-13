@@ -97,12 +97,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\Dropdown.cs" />
     <Compile Include="Model\DropdownCollection.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\BillOfMaterials.cs" />
     <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\InventoryLimit.cs" />
-    <Compile Include="Model\Report.cs" />
+    <Compile Include="Model\ReportView.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Unit.cs" />

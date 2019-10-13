@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CIMS.Model
 {
-    public class Report
+    public class Dropdown
     {
-
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string NameOfTable { get; set; }
     }
 }

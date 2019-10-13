@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace CIMS.Model
 {
-    public class Dropdown
+    public class DropdownCollection
     {
         public List<string> EmployeePosition { get; set; }
         public List<string> InventoryClass1 { get; set; }

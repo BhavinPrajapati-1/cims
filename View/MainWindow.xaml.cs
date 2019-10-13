@@ -10,7 +10,7 @@ namespace CIMS
     public partial class MainWindow : MetroWindow
     {
         public MainWindowViewModel viewModel;
-        public Dropdown dropdown;
+        public DropdownCollection dropdown;
         public MainWindow()
         {
             viewModel = new MainWindowViewModel();
@@ -45,15 +45,15 @@ namespace CIMS
         }
         public void SetUpDropdown()
         {
-            dropdown = new Dropdown
+            dropdown = new DropdownCollection
             {
-                EmployeePosition = Read.DropdownValue("EmployeePosition"),
-                InventoryClass1 = Read.DropdownValue("InventoryClass1"),
-                InventoryClass2 = Read.DropdownValue("InventoryClass2"),
-                InventoryQuantityType = Read.DropdownValue("InventoryQuantityType"),
-                UnitStatus = Read.DropdownValue("UnitStatus"),
-                UnitType = Read.DropdownValue("UnitType"),
-                UserAccessType = Read.DropdownValue("UserAccessType")
+                EmployeePosition = Read.Dropdown("EmployeePosition"),
+                InventoryClass1 = Read.Dropdown("InventoryClass1"),
+                InventoryClass2 = Read.Dropdown("InventoryClass2"),
+                InventoryQuantityType = Read.Dropdown("InventoryQuantityType"),
+                UnitStatus = Read.Dropdown("UnitStatus"),
+                UnitType = Read.Dropdown("UnitType"),
+                UserAccessType = Read.Dropdown("UserAccessType")
             };
         }
 

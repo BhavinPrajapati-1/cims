@@ -12,7 +12,7 @@ namespace CIMS.ViewModel
     public class MainWindowViewModel : PropertyChangeHandler
     {
         private User _currentUser;
-        private Dropdown _dropdown;
+        private DropdownCollection _dropdown;
 
         public User CurrentUser {
             get
@@ -26,7 +26,7 @@ namespace CIMS.ViewModel
                 OnPropertyChanged("CurrentUser");
             }
         }
-        public Dropdown DropdownValues
+        public DropdownCollection DropdownValues
         {
             get
             {

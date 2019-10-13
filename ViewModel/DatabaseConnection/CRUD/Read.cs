@@ -10,12 +10,12 @@ namespace CIMS.ViewModel.DatabaseConnection.CRUD
 {
     public class Read
     {
-
-        public static List<string> DropdownValue(string tableName)
+        public static List<string> Dropdown(string tableName, [Optional]string where)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                string read = "select Name from " + tableName;
+                string whereQuery = where == null ? "" : " where " + where;
+                string read = "select Name from " + tableName + whereQuery;
                 var output = cnn.Query<string>(read, new DynamicParameters());
                 return output.ToList();
             }
@@ -92,12 +92,12 @@ namespace CIMS.ViewModel.DatabaseConnection.CRUD
                 return output.ToList();
             }
         }
-        public static List<Report> Reports()
+        public static List<ReportView> Reports()
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
                 string read = SqliteQuery.Read("ViewReports");
-                var output = cnn.Query<Report>(read, new DynamicParameters());
+                var output = cnn.Query<ReportView>(read, new DynamicParameters());
                 return output.ToList();
             }
         }

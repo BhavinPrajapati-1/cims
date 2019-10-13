@@ -24,15 +24,31 @@ namespace CIMS.ViewModel.DatabaseConnection
         {
             string set = "";
             string[] values = headers.Split(',');
-            foreach (var value in values) {
+            foreach (var value in values)
+            {
                 set = set + value + " = @" + value + ", ";
             }
             set = " set " + set.Substring(0, set.Length - 2);
             return "update " + tableName + set + " where ID = " + id;
         }
+        public static string Update(string tableName, string headers, string itemCode)
+        {
+            string set = "";
+            string[] values = headers.Split(',');
+            foreach (var value in values)
+            {
+                set = set + value + " = @" + value + ", ";
+            }
+            set = " set " + set.Substring(0, set.Length - 2);
+            return "update " + tableName + set + " where ItemCode = " + itemCode;
+        }
         public static string Delete(string tableName, int id)
         {
             return "delete from " + tableName + " where ID = " + id;
+        }
+        public static string Delete(string tableName, string itemCode)
+        {
+            return "delete from " + tableName + " where temCode = " + itemCode;
         }
     }
 
