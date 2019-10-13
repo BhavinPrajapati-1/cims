@@ -60,8 +60,8 @@
                     <StackPanel VerticalAlignment="Center">
                         <Image Source="/CIMS;component/resources/user.png" Height="100"/>
                     </StackPanel>
-                    <Label Content="{Binding CurrentUser.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"/>
-                    <Label Content="{Binding CurrentUser.AccessType, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Light" FontSize="15"/>
+                    <Label Content="{Binding CurrentUser.EmployeeFullName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"/>
+                    <Label Content="{Binding CurrentUser.AccessTypeName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Light" FontSize="15"/>
                 </WrapPanel>
             </Controls:Flyout>
         </Controls:FlyoutsControl>

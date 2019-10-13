@@ -1,5 +1,4 @@
 ﻿using CIMS.ViewModel;
-using CIMS.ViewModel.DBConnection;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;

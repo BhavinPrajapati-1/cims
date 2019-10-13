@@ -13,6 +13,7 @@ namespace CIMS.Model
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public int Position_ID { get; set; }
+        public string PositionName { get; set; }
         public string ContactNumber { get; set; }
         public string EmailAddress { get; set; }
         public string FullName
@@ -23,6 +24,7 @@ namespace CIMS.Model
                 return fullName.Replace("  ", " ");
             }
         }
+
         public string Headers
         {
             get

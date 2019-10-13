@@ -9,9 +9,7 @@ namespace CIMS.View
     public partial class HomeView : UserControl
     {
         private MainWindow main = (MainWindow)Application.Current.MainWindow;
-        //private DataQuery dataQuery = new DataQuery();
         private EmployeeViewModel vmEmployee;
-        //private SupplierViewModel vmSupplier;
 
         public HomeView()
         {
@@ -23,7 +21,6 @@ namespace CIMS.View
         {
             main.SelectTab("employee");
             vmEmployee = main.ucEmployee.employeeVM;
-            vmEmployee.EmployeeTable = dataQuery.EmployeeTable();
         }   
 
         private void TileSupplier_Click(object sender, RoutedEventArgs e)

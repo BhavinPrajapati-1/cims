@@ -11,7 +11,7 @@ namespace CIMS.Model
         public string DBLastSaved { get; set; }
         public string Status { get; set; }
         public string Notes { get; set; }
-
+        public string UserName { get; set; }
         public string Headers
         {
             get

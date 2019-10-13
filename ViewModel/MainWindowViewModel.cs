@@ -12,7 +12,7 @@ namespace CIMS.ViewModel
     public class MainWindowViewModel : PropertyChangeHandler
     {
         private User _currentUser;
-        private DataTable _supplierTable;
+        private Dropdown _dropdown;
 
         public User CurrentUser {
             get
@@ -26,20 +26,19 @@ namespace CIMS.ViewModel
                 OnPropertyChanged("CurrentUser");
             }
         }
-
-
-        public DataTable SupplierTable
+        public Dropdown DropdownValues
         {
             get
             {
-                return _supplierTable;
+                return _dropdown;
             }
             set
             {
-                if (value == _supplierTable) return;
-                _supplierTable = value;
-                OnPropertyChanged("SupplierTable");
+                if (value == _dropdown) return;
+                _dropdown = value;
+                OnPropertyChanged("DropdownValues");
             }
         }
+
     }
 }

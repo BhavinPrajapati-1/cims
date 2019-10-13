@@ -41,8 +41,8 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.2.0.0-alpha0490\lib\net47\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.Sqlite, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Sqlite.Core.3.0.0\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
@@ -75,6 +75,9 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,12 +97,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Database.cs" />
-    <Compile Include="Model\Dropdown.cs" />
+    <Compile Include="Model\DropdownCollection.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\BillOfMaterials.cs" />
     <Compile Include="Model\Inventory.cs" />
+    <Compile Include="Model\InventoryLimit.cs" />
+    <Compile Include="Model\Report.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Model\Unit.cs" />
+    <Compile Include="Model\UnitProgress.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\Commands\CreateCommand.cs" />
     <Compile Include="ViewModel\DatabaseConnection\CRUD\Create.cs" />
@@ -108,10 +115,15 @@
     <Compile Include="ViewModel\DatabaseConnection\SqliteDataAccess.cs" />
     <Compile Include="ViewModel\DatabaseConnection\SqliteQuery.cs" />
     <Compile Include="ViewModel\DatabaseConnection\CRUD\Update.cs" />
-    <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\SQLiteViewModel\DatabaseViewModel.cs" />
+    <Compile Include="ViewModel\SQLiteViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PropertyChangeHandler.cs" />
-    <Compile Include="ViewModel\SupplierViewModel.cs" />
+    <Compile Include="ViewModel\SQLiteViewModel\SupplierViewModel.cs" />
+    <Compile Include="ViewModel\SQLiteViewModel\UserViewModel.cs" />
+    <Compile Include="View\DataGridView.xaml.cs">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LogInView.xaml.cs">
       <DependentUpon>LogInView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +148,18 @@
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +219,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\Entypo-license.txt" />
+    <Resource Include="Resources\Entypo.ttf" />
+    <Resource Include="Resources\WindowsIcons-license.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

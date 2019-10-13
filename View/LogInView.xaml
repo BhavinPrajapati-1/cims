@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CIMS.View"
              mc:Ignorable="d" xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
@@ -24,7 +23,8 @@
                      Controls:TextBoxHelper.Watermark="Password"/>
 
             <Button x:Name="logInButton"  Height="65" Width="65" BorderBrush="Green" BorderThickness="5"
-                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Click="LogInButton_Click">
+                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" 
+                Click="LogInButton_Click">
                 <Viewbox Width="55" Height="55">
                     <Canvas Width="24" Height="24">
                         <Path Data="M4,15V9H12V4.16L19.84,12L12,19.84V15H4Z" Fill="Green" />

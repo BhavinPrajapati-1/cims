@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\App.xaml
-91573036044
+12841691409
 1-1091911298
-33-386519196
-132-1909644318
-View\LogInView.xaml;View\MainWindow.xaml;View\EmployeeView.xaml;View\HomeView.xaml;View\SupplierView.xaml;View\UnitView.xaml;View\Unit\UnitListView.xaml;View\Unit\UnitProgressView.xaml;View\UserView.xaml;
+40-1955137243
+133-634098183
+Resources\Icons.xaml;Resources\IconsNonShared.xaml;View\DataGridView.xaml;View\LogInView.xaml;View\MainWindow.xaml;View\EmployeeView.xaml;View\HomeView.xaml;View\SupplierView.xaml;View\UnitView.xaml;View\Unit\UnitListView.xaml;View\Unit\UnitProgressView.xaml;View\UserView.xaml;
 
 False
 
