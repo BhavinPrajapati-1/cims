@@ -105,57 +105,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Database.cs" />
-    <Compile Include="Model\Dropdown.cs" />
-    <Compile Include="Model\DropdownCollection.cs" />
-    <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\BillOfMaterials.cs" />
-    <Compile Include="Model\Inventory.cs" />
-    <Compile Include="Model\InventoryLimit.cs" />
-    <Compile Include="Model\ReportView.cs" />
-    <Compile Include="Model\Supplier.cs" />
-    <Compile Include="Model\Transaction.cs" />
-    <Compile Include="Model\Unit.cs" />
-    <Compile Include="Model\UnitProgress.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="ViewModel\Commands\CreateCommand.cs" />
-    <Compile Include="ViewModel\DatabaseConnection\CRUD\Create.cs" />
-    <Compile Include="ViewModel\DatabaseConnection\CRUD\Delete.cs" />
-    <Compile Include="ViewModel\DatabaseConnection\CRUD\Read.cs" />
-    <Compile Include="ViewModel\DatabaseConnection\SqliteDataAccess.cs" />
-    <Compile Include="ViewModel\DatabaseConnection\SqliteQuery.cs" />
-    <Compile Include="ViewModel\DatabaseConnection\CRUD\Update.cs" />
-    <Compile Include="ViewModel\SQLiteViewModel\DatabaseViewModel.cs" />
-    <Compile Include="ViewModel\SQLiteViewModel\EmployeeViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\PropertyChangeHandler.cs" />
-    <Compile Include="ViewModel\SQLiteViewModel\SupplierViewModel.cs" />
-    <Compile Include="ViewModel\SQLiteViewModel\UserViewModel.cs" />
-    <Compile Include="View\DataGridView.xaml.cs">
+    <Compile Include="Models\DatabaseModel.cs" />
+    <Compile Include="Models\DropdownModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\BillOfMaterialsModel.cs" />
+    <Compile Include="Models\InventoryModel.cs" />
+    <Compile Include="Models\InventoryLimitModel.cs" />
+    <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\SupplierModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
+    <Compile Include="Models\UnitModel.cs" />
+    <Compile Include="Models\UnitProgressModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\BillOfMaterialsViewModel.cs" />
+    <Compile Include="ViewModels\Commands\CreateCommand.cs" />
+    <Compile Include="ViewModels\DatabaseConnection\CRUD\Create.cs" />
+    <Compile Include="ViewModels\DatabaseConnection\CRUD\Delete.cs" />
+    <Compile Include="ViewModels\DatabaseConnection\CRUD\Read.cs" />
+    <Compile Include="ViewModels\DatabaseConnection\SqliteDataAccess.cs" />
+    <Compile Include="ViewModels\DatabaseConnection\SqliteQuery.cs" />
+    <Compile Include="ViewModels\DatabaseConnection\CRUD\Update.cs" />
+    <Compile Include="ViewModels\DatabaseViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HelperClasses\LogInHelperClass.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\InventoryViewModel.cs" />
+    <Compile Include="ViewModels\LogInViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
+    <Compile Include="ViewModels\SupplierViewModel.cs" />
+    <Compile Include="ViewModels\TransactionViewModel.cs" />
+    <Compile Include="ViewModels\UnitViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LogInView.xaml.cs">
+    <Compile Include="Views\LogInView.xaml.cs">
       <DependentUpon>LogInView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployeeView.xaml.cs">
+    <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HomeView.xaml.cs">
+    <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SupplierView.xaml.cs">
+    <Compile Include="Views\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UnitView.xaml.cs">
+    <Compile Include="Views\UnitView.xaml.cs">
       <DependentUpon>UnitView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Unit\UnitListView.xaml.cs">
+    <Compile Include="Views\Unit\UnitListView.xaml.cs">
       <DependentUpon>UnitListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Unit\UnitProgressView.xaml.cs">
+    <Compile Include="Views\Unit\UnitProgressView.xaml.cs">
       <DependentUpon>UnitProgressView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserView.xaml.cs">
+    <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Icons.xaml">
@@ -166,15 +174,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\DataGridView.xaml">
+    <Page Include="Views\DataGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LogInView.xaml">
+    <Page Include="Views\LogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Views\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -182,35 +190,35 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Views\MainWindowView.xaml.cs">
+      <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\EmployeeView.xaml">
+    <Page Include="Views\EmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HomeView.xaml">
+    <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SupplierView.xaml">
+    <Page Include="Views\SupplierView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UnitView.xaml">
+    <Page Include="Views\UnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Unit\UnitListView.xaml">
+    <Page Include="Views\Unit\UnitListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Unit\UnitProgressView.xaml">
+    <Page Include="Views\Unit\UnitProgressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserView.xaml">
+    <Page Include="Views\UserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
