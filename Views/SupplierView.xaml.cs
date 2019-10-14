@@ -5,7 +5,7 @@ namespace CIMS.Views
 {
     public partial class SupplierView : UserControl
     {
-        private readonly MainWindow main = (MainWindow)Application.Current.MainWindow;
+        private readonly MainWindowView main = (MainWindowView)Application.Current.MainWindow;
         public SupplierView()
         {
             InitializeComponent();

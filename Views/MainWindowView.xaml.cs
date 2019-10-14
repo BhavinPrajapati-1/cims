@@ -1,17 +1,17 @@
 ﻿using MahApps.Metro.Controls;
 using System.Windows;
 
-namespace CIMS
+namespace CIMS.Views
 {
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindowView : MetroWindow
     {
-        public MainWindow()
+        public MainWindowView()
         {
-            InitializeComponent();
-            this.LoadHome.Visibility = Visibility.Hidden;
-            this.profileButton.Visibility = Visibility.Hidden;
-            this.Height = 600;
-            this.Width = 600;
+            //InitializeComponent();
+            //this.LoadHome.Visibility = Visibility.Hidden;
+            //this.profileButton.Visibility = Visibility.Hidden;
+            //this.Height = 600;
+            //this.Width = 600;
         }
     }
 
