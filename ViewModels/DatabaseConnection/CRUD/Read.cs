@@ -10,13 +10,23 @@ namespace CIMS.ViewModels.DatabaseConnection.CRUD
 {
     public class Read
     {
-        public static List<string> Dropdown(string tableName, [Optional]string where)
+        public static List<string> Dropdown(string tableName, [Optional]string id)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                string whereQuery = where == null ? "" : " where " + where;
+                string whereQuery = id == null ? "" : " where ID=" + id;
                 string read = "select Name from " + tableName + whereQuery;
                 var output = cnn.Query<string>(read, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+        public static List<int> DropdownID(string tableName, [Optional]string name)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
+            {
+                string whereQuery = name == null ? "" : " where Name='" + name +"'";
+                string read = "select ID from " + tableName + whereQuery;
+                var output = cnn.Query<int>(read, new DynamicParameters());
                 return output.ToList();
             }
         }

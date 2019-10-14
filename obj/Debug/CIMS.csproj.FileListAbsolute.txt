@@ -65,3 +65,4 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.CoreCompileIn
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.CopyComplete
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.exe
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.pdb
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csprojAssemblyReference.cache
