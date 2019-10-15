@@ -4,7 +4,6 @@ namespace CIMS.Views
 {
     public partial class EmployeeView : UserControl
     {
-        //private readonly MainWindow main = (MainWindow)Application.Current.MainWindow;
         //public EmployeeViewModel employeeVM = new EmployeeViewModel();
 
         public EmployeeView()
@@ -13,6 +12,7 @@ namespace CIMS.Views
             //this.DataContext = employeeVM;
             //dgEmployees.ItemsSource = employeeVM.Employees;
         }
+
 
     }
 }

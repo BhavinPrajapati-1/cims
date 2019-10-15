@@ -3,9 +3,9 @@
 using Caliburn.Micro;
 using CIMS.Models;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
+using CIMS.ViewModels.HelperClasses;
 using CIMS.Views;
 using MahApps.Metro.Controls.Dialogs;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -17,7 +17,8 @@ namespace CIMS.ViewModels
         private BindableCollection<string> _positions = new BindableCollection<string>(); 
         private EmployeeModel _selectedEmployee;
         private string _selectedPosition;
-        MainWindowView main;
+        private MainWindowView main;
+        private EmployeeHelperClass helper;
         public EmployeeViewModel()
         {
             Employees = new BindableCollection<EmployeeModel>(Read.Employees());
@@ -40,7 +41,7 @@ namespace CIMS.ViewModels
         {
             get
             {
-                EmployeeFields(_selectedEmployee);
+                AccessHelperClass();
                 return _selectedEmployee;
             }
             set
@@ -50,16 +51,12 @@ namespace CIMS.ViewModels
             }
         }
 
-        private void EmployeeFields(EmployeeModel selectedEmployee)
+        private void AccessHelperClass()
         {
-            if (selectedEmployee == null) return;
-            FirstName = selectedEmployee.FirstName;
-            LastName = selectedEmployee.LastName;
-            MiddleName = selectedEmployee.MiddleName;
-            ContactNumber = selectedEmployee.ContactNumber;
-            EmailAddress = selectedEmployee.EmailAddress;
-            SelectedPosition = selectedEmployee.PositionName;
+            if (_selectedEmployee != null)
+                helper = new EmployeeHelperClass(_selectedEmployee, this);
         }
+
         public BindableCollection<string> Positions
         {
             get
@@ -166,53 +163,37 @@ namespace CIMS.ViewModels
             }
         }
 
-
-
-
-
-
-
-
         public void AddEmployee()
         {
-            EmployeeModel originalEmployee = null;
-            originalEmployee = Read.Employees().Where(e => e.ID == SelectedEmployee.ID).FirstOrDefault();
-            EmployeeModel currentEmployee = SelectedEmployee;
+            int positionID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
+            EmployeeModel currentEmployee = new EmployeeModel();
             currentEmployee.FirstName = FirstName;
             currentEmployee.MiddleName = MiddleName;
             currentEmployee.LastName = LastName;
             currentEmployee.EmailAddress = EmailAddress;
             currentEmployee.ContactNumber = ContactNumber;
             currentEmployee.PositionName = SelectedPosition;
-            currentEmployee.Position_ID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault(); 
-            if (currentEmployee.ID== 0)
-            {
-                Create.Employee(SelectedEmployee);
-                PromptMessage("Employee data has been added successfully!", "");
-            }
-            else if(currentEmployee.ID > 0 && currentEmployee != originalEmployee)
-            {
-                Update.Employee(SelectedEmployee);
-                PromptMessage("Employee data has been updated successfully!", "");
-            }
-            RefreshTable();
+            currentEmployee.Position_ID = positionID;
+            helper.SaveEmployee(currentEmployee);
+            ClearEmployeeFields();
         }
 
-        public void UpdateEmployee()
-        {
-
-        }
 
         public void DeleteEmployee()
         {
             //promp message
             Delete.Employee(SelectedEmployee);
             RefreshTable();
-            PromptMessage("Employee data has been deleted successfully!", "");
         }
 
         public void ClearEmployeeFields()
         {
+            FirstName = "";
+            MiddleName = "";
+            LastName = "";
+            ContactNumber = "";
+            EmailAddress = "";
+            SelectedPosition = null;
             RefreshTable();
         }
 
