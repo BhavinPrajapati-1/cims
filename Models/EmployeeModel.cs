@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,9 @@ namespace CIMS.Models
     public class EmployeeModel
     {
         public int ID { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public int Position_ID { get; set; }

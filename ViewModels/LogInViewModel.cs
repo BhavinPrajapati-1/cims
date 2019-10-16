@@ -11,16 +11,13 @@ namespace CIMS.ViewModels
     public class LogInViewModel : Screen
     {
         MainWindowView main;
-        private BindableCollection<UserModel> _users = new BindableCollection<UserModel>();
-        private UserModel _currentUser;
-        private string _logInErrorMessage;
-        private string _userName;
-        private string _userPassword;
-        private bool _logInSuccessful;
+
         public LogInViewModel()
         {
             Users = new BindableCollection<UserModel>(Read.Users());
         }
+
+        private BindableCollection<UserModel> _users = new BindableCollection<UserModel>();
         public BindableCollection<UserModel> Users
         {
             get
@@ -33,6 +30,8 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => Users);
             }
         }
+
+        private UserModel _currentUser = new UserModel();
         public UserModel CurrentUser
         {
             get
@@ -46,6 +45,8 @@ namespace CIMS.ViewModels
             }
 
         }
+
+        private string _logInErrorMessage;
         public string LogInErrorMessage
         {
             get
@@ -60,6 +61,8 @@ namespace CIMS.ViewModels
             }
 
         }
+
+        private string _userName;
         public string UserName
         {
             get
@@ -74,6 +77,8 @@ namespace CIMS.ViewModels
             }
 
         }
+
+        private string _userPassword;
         public string UserPassword
         {
             get
@@ -88,23 +93,25 @@ namespace CIMS.ViewModels
             }
 
         }
+
         public bool CanLogIn
         {
             get
             {
-                bool output= (!string.IsNullOrWhiteSpace(UserName) &&
+                bool output = (!string.IsNullOrWhiteSpace(UserName) &&
                     !string.IsNullOrWhiteSpace(UserPassword));
                 return output;
             }
         }
 
+        private bool _logInSuccessful;
         public bool LogInSuccessful
         {
             get
             {
                 return _logInSuccessful;
             }
-            set 
+            set
             {
                 _logInSuccessful = value;
                 NotifyOfPropertyChange(() => LogInSuccessful);
@@ -135,16 +142,18 @@ namespace CIMS.ViewModels
 
             }
         }
+
+        public void LoadHome()
+        {
+            var conductor = this.Parent as IConductor;
+            conductor.ActivateItem(new HomeViewModel());
+        }
+
         private async void PromptSuccesfulLogIn()
         {
             await main.ShowMessageAsync("Welcome! " + CurrentUser.EmployeeFullName, "You are now signed in.");
             main.lblEmployeeFullName.Content = CurrentUser.EmployeeFullName;
             main.lblAccessTypeName.Content = CurrentUser.AccessTypeName;
-        }
-        public void LoadHome()
-        {
-            var conductor = this.Parent as IConductor;
-            conductor.ActivateItem(new HomeViewModel());
         }
     }
 }

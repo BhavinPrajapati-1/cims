@@ -9,73 +9,86 @@ namespace CIMS.ViewModels.HelperClasses
 {
     public class EmployeeHelperClass
     {
-        MainWindowView main = (MainWindowView)Application.Current.MainWindow;
-        private readonly EmployeeModel employee;
-        private EmployeeModel updatedModel;
-        private readonly EmployeeViewModel employeeVM;
+        private MainWindowView main = (MainWindowView)Application.Current.MainWindow;
+        private UniversalHelper helper = new UniversalHelper();
+        private readonly EmployeeViewModel thisVM = new EmployeeViewModel();
+        private readonly EmployeeModel thisModel = new EmployeeModel();
+        private EmployeeModel newModel = new EmployeeModel();
 
-        public EmployeeHelperClass(EmployeeModel employee, EmployeeViewModel employeeVM)
+        public EmployeeHelperClass(EmployeeModel thisModel, EmployeeViewModel thisVM)
         {
-            this.employee = new EmployeeModel();
-            this.employeeVM = new EmployeeViewModel();
-            this.employee = employee;
-            this.employeeVM = employeeVM;
-            ShowValuesToTextBoxes();
+            this.thisModel = thisModel;
+            this.thisVM = thisVM;
+            PassValuesToControls();
+        }
 
-        }
-        private async void PromptMessage(string largeText, string smalltext)
+        private void PassValuesToControls()
         {
-            await main.ShowMessageAsync(largeText, smalltext);
+            if (thisModel == null) return;
+            thisVM.FirstName = thisModel.FirstName;
+            thisVM.MiddleName = thisModel.MiddleName;
+            thisVM.LastName = thisModel.LastName;
+            thisVM.SelectedPosition = thisModel.PositionName;
+            thisVM.ContactNumber = thisModel.ContactNumber;
+            thisVM.EmailAddress = thisModel.EmailAddress;
         }
-        private void ShowValuesToTextBoxes()
+
+        public bool CanDelete()
         {
-            if (employee == null) return;
-            employeeVM.FirstName = employee.FirstName;
-            employeeVM.MiddleName= employee.MiddleName;
-            employeeVM.LastName = employee.LastName;
-            employeeVM.SelectedPosition = employee.PositionName;
-            employeeVM.ContactNumber = employee.ContactNumber;
-            employeeVM.EmailAddress = employee.EmailAddress;
+            return (RecordExists() && IsItemUpdated());
         }
-        public void SaveEmployee(EmployeeModel updatedModel)
+
+        public bool CanSave()
         {
-            this.updatedModel = updatedModel;
-            if (RecordExists() && IsEmployeeUpdated())
+            if (thisModel == null) return false;
+            bool result =
+                thisVM.FirstName != "" ||
+                thisVM.LastName != "" ||
+                thisVM.PositionId > 0;
+            return result;
+        }
+
+        public void SaveItem(EmployeeModel updatedModel)
+        {
+            this.newModel = updatedModel;
+            if (RecordExists() && IsItemUpdated())
             {
-                updatedModel.ID = employee.ID;
+                updatedModel.ID = thisModel.ID;
                 Update.Employee(updatedModel);
-                PromptMessage("Employee data has been updated successfully!", "");
+                helper.MessageDialog("Employee data has been updated successfully!",
+                    updatedModel.FullName);
             }
             else
             {
                 Create.Employee(updatedModel);
-                PromptMessage("Employee data has been added successfully!", "");
+                helper.MessageDialog("Employee data has been added successfully!",
+                    updatedModel.FullName);
             }
         }
 
-        public bool IsEmployeeUpdated()
+        public bool IsItemUpdated()
         {
-            if (employee == null) return false;
+            if (thisModel == null) return false;
             bool result =
-                updatedModel.FirstName == employee.FirstName &&
-                updatedModel.MiddleName == employee.MiddleName &&
-                updatedModel.LastName == employee.LastName &&
-                updatedModel.Position_ID == employee.Position_ID &&
-                updatedModel.ContactNumber == employee.ContactNumber &&
-                updatedModel.EmailAddress == employee.EmailAddress;
-            return result==false;
+                !(newModel.FirstName == thisModel.FirstName &&
+                newModel.MiddleName == thisModel.MiddleName &&
+                newModel.LastName == thisModel.LastName &&
+                newModel.Position_ID == thisModel.Position_ID &&
+                newModel.ContactNumber == thisModel.ContactNumber &&
+                newModel.EmailAddress == thisModel.EmailAddress);
+            return result;
         }
 
         private bool RecordExists()
         {
-            if (employee == null) return false;
+            if (thisModel == null) return false;
             bool result =
-                employee.FirstName != null &&
-                employee.MiddleName != null &&
-                employee.LastName != null &&
-                employee.Position_ID != 0 &&
-                employee.ContactNumber != null &&
-                employee.EmailAddress != null;
+                thisModel.FirstName != null &&
+                thisModel.MiddleName != null &&
+                thisModel.LastName != null &&
+                thisModel.Position_ID != 0 &&
+                thisModel.ContactNumber != null &&
+                thisModel.EmailAddress != null;
             return result;
         }
 

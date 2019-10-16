@@ -13,18 +13,68 @@ namespace CIMS.ViewModels
 {
     public class EmployeeViewModel : Screen
     {
-        private BindableCollection<EmployeeModel> _employees = new BindableCollection<EmployeeModel>();
-        private BindableCollection<string> _positions = new BindableCollection<string>(); 
-        private EmployeeModel _selectedEmployee;
-        private string _selectedPosition;
-        private MainWindowView main;
         private EmployeeHelperClass helper;
+
         public EmployeeViewModel()
         {
             Employees = new BindableCollection<EmployeeModel>(Read.Employees());
             Positions = new BindableCollection<string>(Read.Dropdown("EmployeePosition"));
-            SelectedEmployee = new EmployeeModel();
+            universalHelper = new UniversalHelper();
         }
+
+        //-----VM Methods
+
+        public void ClearFields() //ClearEmployeeFields()
+        {
+            FirstName = "";
+            MiddleName = "";
+            LastName = "";
+            ContactNumber = "";
+            EmailAddress = "";
+            SelectedPosition = null;
+            Employees = new BindableCollection<EmployeeModel>(Read.Employees());
+        }
+
+        public void RefreshTable()
+        {
+            ClearFields();
+        }
+
+        public void SaveData() //AddEmployee()
+        {
+            int positionID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
+            EmployeeModel currentData = new EmployeeModel();
+            currentData.FirstName = FirstName;
+            currentData.MiddleName = MiddleName;
+            currentData.LastName = LastName;
+            currentData.EmailAddress = EmailAddress;
+            currentData.ContactNumber = ContactNumber;
+            currentData.PositionName = SelectedPosition;
+            currentData.Position_ID = positionID;
+            helper.SaveItem(currentData);
+            ClearFields();
+        }
+
+        public bool CanSaveData
+        {
+            get
+            {
+                bool result = helper.CanSave();
+                return result;
+            }
+        }
+
+        public void DeleteData() //DeleteEmployee
+        {
+            string message = "Are you sure you want to delete " + SelectedEmployee.FullName + "?";
+            universalHelper.YesNoDialog(message, "");
+            Delete.Employee(SelectedEmployee);
+            ClearFields();
+        }
+
+        //-----VM Properties
+
+        private BindableCollection<EmployeeModel> _employees = new BindableCollection<EmployeeModel>();
         public BindableCollection<EmployeeModel> Employees
         {
             get
@@ -37,11 +87,14 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => Employees);
             }
         }
+
+        private EmployeeModel _selectedEmployee = new EmployeeModel();
         public EmployeeModel SelectedEmployee
         {
             get
             {
-                AccessHelperClass();
+                if (_selectedEmployee != null)
+                    helper = new EmployeeHelperClass(_selectedEmployee, this);
                 return _selectedEmployee;
             }
             set
@@ -51,12 +104,7 @@ namespace CIMS.ViewModels
             }
         }
 
-        private void AccessHelperClass()
-        {
-            if (_selectedEmployee != null)
-                helper = new EmployeeHelperClass(_selectedEmployee, this);
-        }
-
+        private BindableCollection<string> _positions = new BindableCollection<string>();
         public BindableCollection<string> Positions
         {
             get
@@ -69,6 +117,9 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => Positions);
             }
         }
+
+        private UniversalHelper universalHelper;
+        private string _selectedPosition;
         public string SelectedPosition
         {
             get
@@ -82,12 +133,13 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => SelectedPosition);
             }
         }
+
         private int _positionId;
         public int PositionId
         {
             get
             {
-                _positionId =Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
+                _positionId = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
                 return _positionId;
             }
             set
@@ -97,6 +149,7 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => SelectedPosition);
             }
         }
+
         private string _firstName;
         public string FirstName
         {
@@ -110,6 +163,7 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => FirstName);
             }
         }
+
         private string _lastName;
         public string LastName
         {
@@ -123,6 +177,7 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => LastName);
             }
         }
+
         private string _middleName;
         public string MiddleName
         {
@@ -136,6 +191,7 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => MiddleName);
             }
         }
+
         private string _contactNumber;
         public string ContactNumber
         {
@@ -149,6 +205,7 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => ContactNumber);
             }
         }
+
         private string _emailAddress;
         public string EmailAddress
         {
@@ -161,53 +218,6 @@ namespace CIMS.ViewModels
                 _emailAddress = value;
                 NotifyOfPropertyChange(() => EmailAddress);
             }
-        }
-
-        public void AddEmployee()
-        {
-            int positionID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
-            EmployeeModel currentEmployee = new EmployeeModel();
-            currentEmployee.FirstName = FirstName;
-            currentEmployee.MiddleName = MiddleName;
-            currentEmployee.LastName = LastName;
-            currentEmployee.EmailAddress = EmailAddress;
-            currentEmployee.ContactNumber = ContactNumber;
-            currentEmployee.PositionName = SelectedPosition;
-            currentEmployee.Position_ID = positionID;
-            helper.SaveEmployee(currentEmployee);
-            ClearEmployeeFields();
-        }
-
-
-        public void DeleteEmployee()
-        {
-            //promp message
-            Delete.Employee(SelectedEmployee);
-            RefreshTable();
-        }
-
-        public void ClearEmployeeFields()
-        {
-            FirstName = "";
-            MiddleName = "";
-            LastName = "";
-            ContactNumber = "";
-            EmailAddress = "";
-            SelectedPosition = null;
-            RefreshTable();
-        }
-
-        public void RefreshTable()
-        {
-            SelectedEmployee = new EmployeeModel();
-            Employees = new BindableCollection<EmployeeModel>(Read.Employees());
-            Positions = new BindableCollection<string>(Read.Dropdown("EmployeePosition"));
-        }
-
-        private async void PromptMessage(string largeText, string smalltext)
-        {
-            main = (MainWindowView)Application.Current.MainWindow;
-            await main.ShowMessageAsync(largeText, smalltext);
         }
     }
 }
