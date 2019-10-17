@@ -32,10 +32,9 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\bin\Debug\System.Numerics.Vectors.x
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Resources\Icons.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Resources\IconsNonShared.baml
-D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\DataGridView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\LogInView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\HomeView.baml
-D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\DataGridView.g.cs
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\UserView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\LogInView.g.cs
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\MainWindowView.g.cs
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\EmployeeView.g.cs
@@ -57,7 +56,6 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\SupplierView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\UnitView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\Unit\UnitListView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\Unit\UnitProgressView.baml
-D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\Views\UserView.baml
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.g.resources
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.Properties.Resources.resources
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.GenerateResource.cache
@@ -65,3 +63,4 @@ D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.CoreCompileIn
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csproj.CopyComplete
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.exe
 D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.pdb
+D:\Projects\Freelance\CIMS project\CIMS\CIMS\obj\Debug\CIMS.csprojAssemblyReference.cache

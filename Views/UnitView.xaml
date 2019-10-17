@@ -20,10 +20,16 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <WrapPanel x:Name="title" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+
+        <DockPanel x:Name="title" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Image Source="/CIMS;component/resources/house.png" Margin="10,0" Height="70"/>
             <Label Content="HOUSE UNITS" Foreground="Black" FontSize="40" FontWeight="Bold"/>
-        </WrapPanel>
+            <DockPanel Grid.ColumnSpan="5"  Grid.Column="0" HorizontalAlignment="Right" Margin="-10,-35,15,-10">
+                <Button x:Name="LoadHome" ToolTip="Load Home Page" Height="60" Width="60" HorizontalAlignment="Right" Background="Beige">
+                    <Image x:Name="ProfileImage" Source="/CIMS;component/resources/home.png" Height="40" Width="40" />
+                </Button>
+            </DockPanel>
+        </DockPanel>
         <Controls:MetroAnimatedTabControl x:Name="unitTabs" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
                 Background="Transparent" TabStripPlacement="Bottom">
             <!--Unit List-->

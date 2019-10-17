@@ -11,7 +11,7 @@ namespace CIMS.ViewModels
 {
     public class SupplierViewModel : Screen
     {
-        private UniversalHelper universalHelper = new UniversalHelper();
+        private UniversalHelper universalHelper;
         private SupplierHelperClass helper;
 
         public SupplierViewModel()
@@ -22,12 +22,19 @@ namespace CIMS.ViewModels
 
         //-----VM Methods
 
+        public void LoadHome()
+        {
+            var conductor = this.Parent as IConductor;
+            conductor.ActivateItem(new HomeViewModel());
+        }
+
         public void ClearFields()
         {
             Name = "";
             Address = "";
             ContactNumber = "";
             Suppliers = new BindableCollection<SupplierModel>(Read.Suppliers());
+            SelectedSupplier = new SupplierModel();
         }
 
         public void RefreshTable()
@@ -37,10 +44,12 @@ namespace CIMS.ViewModels
 
         public void SaveData()
         {
-            SupplierModel currentData = new SupplierModel();
-            currentData.Name = Name;
-            currentData.Address = Address;
-            currentData.ContactNumber = ContactNumber;
+            SupplierModel currentData = new SupplierModel
+            {
+                Name = Name,
+                Address = Address,
+                ContactNumber = ContactNumber
+            };
             helper.SaveItem(currentData);
             ClearFields();
         }
@@ -60,14 +69,13 @@ namespace CIMS.ViewModels
         {
             get
             {
-                if (_selectedSupplier != null)
-                    helper = new SupplierHelperClass(_selectedSupplier, this);
                 return _suppliers;
             }
             set
             {
                 _suppliers = value;
                 NotifyOfPropertyChange(() => Suppliers);
+                NotifyOfPropertyChange(() => SelectedSupplier);
             }
         }
 

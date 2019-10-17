@@ -17,14 +17,21 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.125*"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="0*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.125*"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
+        <DockPanel Grid.ColumnSpan="5"  Grid.Column="0" HorizontalAlignment="Right" Margin="-10,-15,15,-10">
+            <Button x:Name="LoadUser" Height="60" Width="60" HorizontalAlignment="Right" Background="Beige">
+                <Image x:Name="ProfileImage" Source="/CIMS;component/resources/user.png" Height="40" Width="40" />
+            </Button>
+        </DockPanel>
+
+        
         <Controls:Tile x:Name="LoadEmployee" Grid.Column="1" Grid.Row="2" 
                        Width="Auto" Height="Auto"  Margin="15">
             <Grid>

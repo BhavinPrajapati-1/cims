@@ -11,7 +11,7 @@ namespace CIMS.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public int Employee_ID { get; set; }
-        public EmployeeModel Employee { get; set; }
+        public int EmployeePosition_ID { get; set; }
         public string AccessType_ID { get; set; }
         public string Password { get; set; }
         public string EmployeeLastName { get; set; }
@@ -26,6 +26,7 @@ namespace CIMS.Models
             }
         }
         public string AccessTypeName { get; set; }
+        public string EmployeePositionName { get; set; }
 
         public string Headers
         {

@@ -9,7 +9,6 @@ namespace CIMS.ViewModels
         {
 
         }
-
         public void LoadEmployee()
         {
             var conductor = this.Parent as IConductor;

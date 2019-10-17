@@ -1,13 +1,8 @@
-﻿
-
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using CIMS.Models;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
 using CIMS.ViewModels.HelperClasses;
-using CIMS.Views;
-using MahApps.Metro.Controls.Dialogs;
 using System.Linq;
-using System.Windows;
 
 namespace CIMS.ViewModels
 {
@@ -24,7 +19,7 @@ namespace CIMS.ViewModels
 
         //-----VM Methods
 
-        public void ClearFields() //ClearEmployeeFields()
+        public void ClearFields() 
         {
             FirstName = "";
             MiddleName = "";
@@ -40,7 +35,7 @@ namespace CIMS.ViewModels
             ClearFields();
         }
 
-        public void SaveData() //AddEmployee()
+        public void SaveData() 
         {
             int positionID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
             EmployeeModel currentData = new EmployeeModel();
@@ -64,14 +59,20 @@ namespace CIMS.ViewModels
             }
         }
 
-        public void DeleteData() //DeleteEmployee
+        public void DeleteData() 
         {
+            if (!helper.CanDelete()) return;
             string message = "Are you sure you want to delete " + SelectedEmployee.FullName + "?";
             universalHelper.YesNoDialog(message, "");
             Delete.Employee(SelectedEmployee);
             ClearFields();
         }
 
+        public void LoadHome()
+        {
+            var conductor = this.Parent as IConductor;
+            conductor.ActivateItem(new HomeViewModel());
+        }
         //-----VM Properties
 
         private BindableCollection<EmployeeModel> _employees = new BindableCollection<EmployeeModel>();

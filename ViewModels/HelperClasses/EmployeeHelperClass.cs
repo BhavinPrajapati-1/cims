@@ -35,7 +35,7 @@ namespace CIMS.ViewModels.HelperClasses
 
         public bool CanDelete()
         {
-            return (RecordExists() && IsItemUpdated());
+            return (RecordExists());
         }
 
         public bool CanSave()
