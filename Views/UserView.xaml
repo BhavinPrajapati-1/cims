@@ -52,7 +52,7 @@
                                 </Canvas>
                             </Viewbox>
                             <TextBox BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="300" Height="37" IsEnabled="False"
-                         Controls:TextBoxHelper.Watermark="User ID"/>
+                         Controls:TextBoxHelper.Watermark="User ID" >shane</TextBox>
                         </WrapPanel>
 
                         <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Background="LightGreen">

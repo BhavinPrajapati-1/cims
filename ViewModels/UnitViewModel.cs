@@ -14,7 +14,7 @@ namespace CIMS.ViewModels
         public UnitViewModel()
         {
             Units = new BindableCollection<UnitModel>(Read.Units());
-            UnitProgress = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
+            ProgressOfUnits = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
             universalHelper = new UniversalHelper();
         }
 
@@ -59,7 +59,7 @@ namespace CIMS.ViewModels
 
 
         private BindableCollection<UnitProgressModel> _unitProgress = new BindableCollection<UnitProgressModel>();
-        public BindableCollection<UnitProgressModel> UnitProgress
+        public BindableCollection<UnitProgressModel> ProgressOfUnits
         {
             get
             {
@@ -72,19 +72,19 @@ namespace CIMS.ViewModels
             }
         }
 
-        private UnitProgressModel _selectedUnitProgress = new UnitProgressModel();
-        public UnitProgressModel SelectedUnitProgress
+        private UnitProgressModel _selectedProgressUnits = new UnitProgressModel();
+        public UnitProgressModel SelectedProgressOfUnit
         {
             get
             {
-                if (_selectedUnitProgress != null)
-                    upHelper=new UnitProgressHelperClass(_selectedUnitProgress, this);
-                return _selectedUnitProgress;
+                if (_selectedProgressUnits != null)
+                    upHelper=new UnitProgressHelperClass(_selectedProgressUnits, this);
+                return _selectedProgressUnits;
             }
             set
             {
-                _selectedUnitProgress = value;
-                NotifyOfPropertyChange(() => SelectedUnitProgress);
+                _selectedProgressUnits = value;
+                NotifyOfPropertyChange(() => SelectedProgressOfUnit);
             }
         }
     }

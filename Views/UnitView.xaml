@@ -65,7 +65,7 @@
                             </Button>
                         </WrapPanel>
 
-                        <DataGrid x:Name="Units" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
+                        <DataGrid x:Name="Unitsz" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
                      BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="800" >
                             <DataGrid.Columns>
@@ -227,13 +227,13 @@
                             </Button>
                         </WrapPanel>
 
-                        <DataGrid x:Name="UnitProgress" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
+                        <DataGrid x:Name="ProgressOfUnitzs" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
                      BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="800" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Upload Date" Binding="{Binding Path=UploadDate}"/>
                                 <DataGridTextColumn Header="Unit Name" Binding="{Binding Path=Name}"/>
-                                <DataGridTextColumn Header="Unit Type" Binding="{Binding Path=TypeName}"/>
+                                <DataGridTextColumn Header="Unit Type" Binding="{Binding Path=UnitTypeName}"/>
                                 <DataGridTextColumn Header="Unit Address" Binding="{Binding Path=Address}"/>
                                 <DataGridTextColumn Header="Status" Binding="{Binding Path=StatusName}"/>
                                 <DataGridTextColumn Header="Notes" Binding="{Binding Path=StartDate}"/>
