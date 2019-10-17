@@ -24,5 +24,6 @@ namespace CIMS.Views
         {
             InitializeComponent();
         }
+
     }
 }

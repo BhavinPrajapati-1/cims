@@ -132,6 +132,8 @@
     <Compile Include="ViewModels\HelperClasses\EmployeeHelperClass.cs" />
     <Compile Include="ViewModels\HelperClasses\PasswordBoxHelper.cs" />
     <Compile Include="ViewModels\HelperClasses\SupplierHelperClass.cs" />
+    <Compile Include="ViewModels\HelperClasses\UnitHelperClass.cs" />
+    <Compile Include="ViewModels\HelperClasses\UnitProgressHelperClass.cs" />
     <Compile Include="ViewModels\HelperClasses\UniversalHelper.cs" />
     <Compile Include="ViewModels\HelperClasses\UserHelperClass.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />

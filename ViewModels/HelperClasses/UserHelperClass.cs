@@ -9,13 +9,13 @@ namespace CIMS.ViewModels.HelperClasses
 {
     public class UserHelperClass
     {
-        private UserModel selectedUser;
-        private UserViewModel userViewModel;
+        private UserModel thisModel;
+        private UserViewModel thisVM;
 
-        public UserHelperClass(UserModel selectedUser, UserViewModel userViewModel)
+        public UserHelperClass(UserModel thisModel, UserViewModel thisVM)
         {
-            this.selectedUser = selectedUser;
-            this.userViewModel = userViewModel;
+            this.thisModel = thisModel;
+            this.thisVM = thisVM;
         }
 
         internal void SaveItem(UserModel currentData)
