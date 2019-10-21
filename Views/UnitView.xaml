@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d"
-             xmlns:uc="clr-namespace:CIMS.Views.Unit"
              d:DesignHeight="900" d:DesignWidth="1600">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,7 +19,6 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-
         <DockPanel x:Name="title" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Image Source="/CIMS;component/resources/house.png" Margin="10,0" Height="70"/>
             <Label Content="HOUSE UNITS" VerticalAlignment="Center" Foreground="Black" FontSize="40" FontWeight="Bold"/>
@@ -30,6 +28,7 @@
                 </Button>
             </DockPanel>
         </DockPanel>
+        
         <Controls:MetroAnimatedTabControl x:Name="unitTabs" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
                 Background="Transparent" TabStripPlacement="Bottom">
             <!--Unit List-->
@@ -144,7 +143,7 @@
                                                 <Path Data="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <DatePickerTextBox Controls:TextBoxHelper.Watermark="Select Date" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <DatePickerTextBox Controls:TextBoxHelper.Watermark="Select Date" BorderBrush="DarkBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>

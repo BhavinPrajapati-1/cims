@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CIMS.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Background="Beige"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              d:DesignHeight="900" d:DesignWidth="1600">
 
@@ -36,7 +36,7 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-7,0,7,0">
 
             <WrapPanel x:Name="employeeGrid" Visibility="Visible" Orientation="Vertical"
-                   HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,0,0,70">
+                   HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,0,0,30">
 
                 <WrapPanel x:Name="buttons" Orientation="Horizontal" HorizontalAlignment="Right">
 
@@ -56,7 +56,7 @@
                     </Button>
                 </WrapPanel>
                 <DataGrid x:Name="Suppliers" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="300" HorizontalContentAlignment="Center"
-                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" 
+                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"  FontSize="16"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="519" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
@@ -67,50 +67,46 @@
 
             </WrapPanel>
 
-            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="7"  VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <WrapPanel x:Name="employeeCRUD" Orientation="Vertical" Margin="50,15"
-                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Border BorderBrush="Black" BorderThickness="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <WrapPanel x:Name="employeeCRUD" Orientation="Vertical" Margin="50,15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-                    <WrapPanel Orientation="Horizontal">
-
-                        <WrapPanel Margin="30,0,0,30" Orientation="Vertical">
-                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,5">
-                                <Viewbox Width="40" Height="40" Margin="0,0,20,0">
+                    <WrapPanel Orientation="Vertical">
+                        <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
+                            <Label Content="SUPPLIER NAME:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+                            <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightBlue">
+                                <Viewbox Width="37" Height="37">
                                     <Canvas Width="24" Height="24">
                                         <Path Data="M12,3A4,4 0 0,1 16,7A4,4 0 0,1 12,11A4,4 0 0,1 8,7A4,4 0 0,1 12,3M16,13.54C16,14.6 15.72,17.07 13.81,19.83L13,15L13.94,13.12C13.32,13.05 12.67,13 12,13C11.33,13 10.68,13.05 10.06,13.12L11,15L10.19,19.83C8.28,17.07 8,14.6 8,13.54C5.61,14.24 4,15.5 4,17V21H10L11.09,21H12.91L14,21H20V17C20,15.5 18.4,14.24 16,13.54Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="SupplierName" ToolTip="Supplier Name" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
-                     Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Supplier Name"/>
+                                <TextBox x:Name="SupplierName" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
-                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,5">
-                                <Viewbox Width="40" Height="40" Margin="0,0,20,0">
+                        </WrapPanel>
+                        <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
+                            <Label Content="ADDRESS:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+                            <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightBlue">
+                                <Viewbox Width="37" Height="37">
                                     <Canvas Width="24" Height="24">
                                         <Path Data="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,14.5 12,18 12,18C12,18 8.2,14.5 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,10A1.5,1.5 0 0,0 10.5,11.5A1.5,1.5 0 0,0 12,13A1.5,1.5 0 0,0 13.5,11.5A1.5,1.5 0 0,0 12,10Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="Address" ToolTip="Supplier Address"
-                    BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
-                     Controls:TextBoxHelper.ClearTextButton="True"
-                     Controls:TextBoxHelper.Watermark="Supplier Address"/>
+                                <TextBox x:Name="Address" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
-                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,5">
-                                <Viewbox Width="40" Height="40" Margin="0,0,20,0">
+                        </WrapPanel>
+                        <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
+                            <Label Content="CONTACT NUMBER:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+                            <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightBlue">
+                                <Viewbox Width="37" Height="37">
                                     <Canvas Width="24" Height="24">
                                         <Path Data="M15,2A1,1 0 0,0 14,3V6H10C8.89,6 8,6.89 8,8V20C8,21.11 8.89,22 10,22H15C16.11,22 17,21.11 17,20V8C17,7.26 16.6,6.62 16,6.28V3A1,1 0 0,0 15,2M10,8H15V13H10V8M10,15H11V16H10V15M12,15H13V16H12V15M14,15H15V16H14V15M10,17H11V18H10V17M12,17H13V18H12V17M14,17H15V18H14V17M10,19H11V20H10V19M12,19H13V20H12V19M14,19H15V20H14V19Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="ContactNumber" ToolTip="Contact Number"
-                    BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
-                     Controls:TextBoxHelper.ClearTextButton="True"
-                     Controls:TextBoxHelper.Watermark="Contact Number"/>
+                                <TextBox x:Name="ContactNumber" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
-
                         </WrapPanel>
-
                     </WrapPanel>
 
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
 
                         <Button  x:Name="SaveData" Margin="10,0" Width="150"  BorderBrush="Green" BorderThickness="3" Background="LightGreen">
                             <WrapPanel Orientation="Horizontal">

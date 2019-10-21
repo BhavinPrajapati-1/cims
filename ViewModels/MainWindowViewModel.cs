@@ -5,7 +5,7 @@ namespace CIMS.ViewModels
 {
     public class MainWindowViewModel : Conductor<object>
     {
-        private LogInViewModel _logInVM;
+        private readonly LogInViewModel _logInVM;
         public MainWindowViewModel(LogInViewModel logInVM)
         {
             _logInVM = logInVM;

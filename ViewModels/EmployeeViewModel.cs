@@ -1,8 +1,12 @@
 ﻿using Caliburn.Micro;
 using CIMS.Models;
+using CIMS.Models.Validators;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
 using CIMS.ViewModels.HelperClasses;
+using FluentValidation.Results;
+using System;
 using System.Linq;
+using System.Windows;
 
 namespace CIMS.ViewModels
 {
@@ -28,6 +32,7 @@ namespace CIMS.ViewModels
             EmailAddress = "";
             SelectedPosition = null;
             Employees = new BindableCollection<EmployeeModel>(Read.Employees());
+            SelectedEmployee = new EmployeeModel();
         }
 
         public void RefreshTable()
@@ -37,8 +42,27 @@ namespace CIMS.ViewModels
 
         public void SaveData() 
         {
-            int positionID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
             EmployeeModel currentData = new EmployeeModel();
+            CollectDetails(currentData);
+            EmployeeValidator validator = new EmployeeValidator();
+            ValidationResult result = validator.Validate(currentData);
+            if (result.IsValid == false)
+            {
+                string errorMessage = (String.Join(Environment.NewLine + "- ",
+                 result.Errors.Select(error => error.ErrorMessage)));
+                universalHelper.MessageDialog("Saving of data failed!", "-" + errorMessage);
+                return;
+            }
+            else
+            {
+                helper.SaveItem(currentData);
+                ClearFields();
+            }
+        }
+
+        private void CollectDetails(EmployeeModel currentData)
+        {
+            int positionID = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
             currentData.FirstName = FirstName;
             currentData.MiddleName = MiddleName;
             currentData.LastName = LastName;
@@ -46,17 +70,6 @@ namespace CIMS.ViewModels
             currentData.ContactNumber = ContactNumber;
             currentData.PositionName = SelectedPosition;
             currentData.Position_ID = positionID;
-            helper.SaveItem(currentData);
-            ClearFields();
-        }
-
-        public bool CanSaveData
-        {
-            get
-            {
-                bool result = helper.CanSave();
-                return result;
-            }
         }
 
         public void DeleteData() 

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CIMS.Views.Unit
+namespace CIMS.Views
 {
     /// <summary>
-    /// Interaction logic for UnitProgressViewxaml.xaml
+    /// Interaction logic for TransactionView.xaml
     /// </summary>
-    public partial class UnitProgressView : UserControl
+    public partial class TransactionView : UserControl
     {
-        public UnitProgressView()
+        public TransactionView()
         {
             InitializeComponent();
         }

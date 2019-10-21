@@ -58,6 +58,11 @@ namespace CIMS.ViewModels.HelperClasses
                 helper.MessageDialog("Employee data has been updated successfully!",
                     updatedModel.FullName);
             }
+            else if (RecordExists() == true && IsItemUpdated() == false)
+            {
+                helper.MessageDialog("Save failed! There are no changes identified.",
+                    updatedModel.FullName);
+            }
             else
             {
                 Create.Employee(updatedModel);
@@ -82,13 +87,7 @@ namespace CIMS.ViewModels.HelperClasses
         private bool RecordExists()
         {
             if (thisModel == null) return false;
-            bool result =
-                thisModel.FirstName != null &&
-                thisModel.MiddleName != null &&
-                thisModel.LastName != null &&
-                thisModel.Position_ID != 0 &&
-                thisModel.ContactNumber != null &&
-                thisModel.EmailAddress != null;
+            bool result = thisModel.Position_ID != 0;
             return result;
         }
 

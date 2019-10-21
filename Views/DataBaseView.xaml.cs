@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CIMS.Views.Unit
+namespace CIMS.Views
 {
     /// <summary>
-    /// Interaction logic for UnitListView.xaml
+    /// Interaction logic for DataBaseView.xaml
     /// </summary>
-    public partial class UnitListView : UserControl
+    public partial class DataBaseView : UserControl
     {
-        public UnitListView()
+        public DataBaseView()
         {
             InitializeComponent();
         }
