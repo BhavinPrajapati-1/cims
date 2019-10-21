@@ -1,9 +1,12 @@
 ﻿using Caliburn.Micro;
 using CIMS.Models;
+using CIMS.Models.Validators;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
 using CIMS.ViewModels.HelperClasses;
 using CIMS.Views;
+using FluentValidation.Results;
 using MahApps.Metro.Controls.Dialogs;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -44,14 +47,24 @@ namespace CIMS.ViewModels
 
         public void SaveData()
         {
-            SupplierModel currentData = new SupplierModel
+            SupplierModel currentData = new SupplierModel();
+            currentData.Name = Name;
+            currentData.Address = Address;
+            currentData.ContactNumber = ContactNumber;
+            SupplierValidator validator = new SupplierValidator();
+            ValidationResult result = validator.Validate(currentData);
+            if (result.IsValid == false)
             {
-                Name = Name,
-                Address = Address,
-                ContactNumber = ContactNumber
-            };
-            helper.SaveItem(currentData);
-            ClearFields();
+                string errorMessage = (String.Join(Environment.NewLine + "   • ",
+                 result.Errors.Select(error => error.ErrorMessage)));
+                universalHelper.MessageDialog("Saving of data failed!", "   • " + errorMessage);
+                return;
+            }
+            else
+            {
+                helper.SaveItem(currentData);
+                ClearFields();
+            }
         }
 
         public void DeleteData()

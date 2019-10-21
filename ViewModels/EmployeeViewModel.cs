@@ -48,9 +48,9 @@ namespace CIMS.ViewModels
             ValidationResult result = validator.Validate(currentData);
             if (result.IsValid == false)
             {
-                string errorMessage = (String.Join(Environment.NewLine + "- ",
+                string errorMessage = (String.Join(Environment.NewLine + "   • ",
                  result.Errors.Select(error => error.ErrorMessage)));
-                universalHelper.MessageDialog("Saving of data failed!", "-" + errorMessage);
+                universalHelper.MessageDialog("Saving of data failed!", "   • " + errorMessage);
                 return;
             }
             else

@@ -14,19 +14,19 @@ namespace CIMS.Models.Validators
         {
             RuleFor(x => x.Name)
                 .Cascade(CascadeMode.StopOnFirstFailure)
-                .NotEmpty().WithMessage("{PropertyName} can't be empty.")
+                .NotEmpty()
                 .Must(v.BeAString).WithMessage("{PropertyName} " + v.InvalidString)
                 .Length(2, 100);
 
             RuleFor(x => x.Address)
                 .Cascade(CascadeMode.StopOnFirstFailure)
-                .NotEmpty().WithMessage("{PropertyName} can't be empty.")
+                .NotEmpty()
                 .Must(v.BeAString).WithMessage("{PropertyName} " + v.InvalidString)
                 .Length(5, 150);
 
             RuleFor(x => x.ContactNumber)
                 .Cascade(CascadeMode.StopOnFirstFailure)
-                .NotEmpty().WithMessage("{PropertyName} can't be empty.")
+                .NotEmpty()
                 .Length(5, 50);
         }
     }
