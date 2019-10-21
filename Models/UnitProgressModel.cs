@@ -18,6 +18,15 @@ namespace CIMS.Models
         public int UnitStatus_ID { get; set; }
         public string UnitStatusName { get; set; }
         public object Image { get; set; }
+        public int ImageExists { get; set; }
+        public bool HasImage
+        {
+            get
+            {
+                bool result = Convert.ToInt32(ImageExists) == 1 ? true : false;
+                return result;
+            }
+        }
         public string Notes { get; set; }
         public int User_ID { get; set; }
         

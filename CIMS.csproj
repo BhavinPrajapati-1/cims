@@ -127,6 +127,8 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Validators\EmployeeValidator.cs" />
     <Compile Include="Models\Validators\SupplierValidator.cs" />
+    <Compile Include="Models\Validators\UnitProgressValidator.cs" />
+    <Compile Include="Models\Validators\UnitValidator.cs" />
     <Compile Include="Models\Validators\UserValidator.cs" />
     <Compile Include="Models\Validators\Validators.cs" />
     <Compile Include="ViewModels\BillOfMaterialsViewModel.cs" />

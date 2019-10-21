@@ -12,6 +12,7 @@ namespace CIMS.ViewModels
 {
     public class EmployeeViewModel : Screen
     {
+        private readonly UniversalHelper universalHelper;
         private EmployeeHelperClass helper;
 
         public EmployeeViewModel()
@@ -74,7 +75,7 @@ namespace CIMS.ViewModels
 
         public void DeleteData() 
         {
-            if (!helper.CanDelete()) return;
+            if (!helper.RecordExists()) return;
             string message = "Are you sure you want to delete " + SelectedEmployee.FullName + "?";
             universalHelper.YesNoDialog(message, "");
             Delete.Employee(SelectedEmployee);
@@ -132,7 +133,6 @@ namespace CIMS.ViewModels
             }
         }
 
-        private UniversalHelper universalHelper;
         private string _selectedPosition;
         public string SelectedPosition
         {
@@ -143,26 +143,26 @@ namespace CIMS.ViewModels
             set
             {
                 _selectedPosition = value;
-                NotifyOfPropertyChange(() => PositionId);
+                //NotifyOfPropertyChange(() => PositionId);
                 NotifyOfPropertyChange(() => SelectedPosition);
             }
         }
 
-        private int _positionId;
-        public int PositionId
-        {
-            get
-            {
-                _positionId = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
-                return _positionId;
-            }
-            set
-            {
-                _positionId = value;
-                NotifyOfPropertyChange(() => PositionId);
-                NotifyOfPropertyChange(() => SelectedPosition);
-            }
-        }
+        //private int _positionId;
+        //public int PositionId
+        //{
+        //    get
+        //    {
+        //        _positionId = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
+        //        return _positionId;
+        //    }
+        //    set
+        //    {
+        //        _positionId = value;
+        //        NotifyOfPropertyChange(() => PositionId);
+        //        NotifyOfPropertyChange(() => SelectedPosition);
+        //    }
+        //}
 
         private string _firstName;
         public string FirstName

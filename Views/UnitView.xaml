@@ -64,8 +64,8 @@
                             </Button>
                         </WrapPanel>
 
-                        <DataGrid x:Name="Unitsz" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
-                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"
+                        <DataGrid x:Name="Units" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
+                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="800" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Unit Name" Binding="{Binding Path=Name}"/>
@@ -90,7 +90,7 @@
                                                 <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <TextBox Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <TextBox x:Name="UnitName" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -104,7 +104,9 @@
                                                 <Path Data="M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <ComboBox Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <ComboBox x:Name="UnitTypeNames" 
+                                                  ItemsSource="{Binding UnitTypes}" SelectedItem="{Binding SelectedUnitType}" SelectedValue="{Binding SelectedUnitType_UnitTypeName}"
+                                                  Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -117,7 +119,9 @@
                                                 <Path Data="M11.97,19.88C10.93,20.26 9.78,19.72 9.4,18.69C9,17.65 9.55,16.5 10.59,16.13C11.63,15.75 12.78,16.28 13.16,17.31C13.54,18.35 13,19.5 11.97,19.88M9.9,14.25C7.83,15 6.76,17.3 7.5,19.38C8.28,21.45 10.58,22.5 12.66,21.75C14.73,21 15.79,18.7 15.04,16.63C14.28,14.55 11.97,13.5 9.9,14.25M15.94,4.58L9.37,7L10.75,10.74L17.32,8.33M20.32,13.62L15.54,15.37C15.71,15.66 15.85,15.96 15.97,16.28C16.09,16.6 16.17,16.93 16.22,17.25L21,15.5M19.54,8.58L11.09,11.68L11.58,13C12.83,13.09 14,13.64 14.89,14.55L20.92,12.34M2,2V4H5.09L8.66,13.75C8.94,13.57 9.24,13.43 9.56,13.31C9.88,13.19 10.21,13.11 10.53,13.06L6.5,2" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <ComboBox Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <ComboBox x:Name="UnitStatusNames" 
+                                                  ItemsSource="{Binding UnitStatuses}" SelectedItem="{Binding SelectedUnitStatuse}" SelectedValue="{Binding SelectedUnitStatuse_UnitStatusName}"
+                                                  Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -130,7 +134,7 @@
                                                 <Path Data="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,14.5 12,18 12,18C12,18 8.2,14.5 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,10A1.5,1.5 0 0,0 10.5,11.5A1.5,1.5 0 0,0 12,13A1.5,1.5 0 0,0 13.5,11.5A1.5,1.5 0 0,0 12,10Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <TextBox Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <TextBox x:Name="UnitAddress" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -143,7 +147,7 @@
                                                 <Path Data="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <DatePickerTextBox Controls:TextBoxHelper.Watermark="Select Date" BorderBrush="DarkBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <DatePickerTextBox x:Name="UnitStartDate" Controls:TextBoxHelper.Watermark="Select Date" BorderBrush="DarkBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -156,7 +160,7 @@
                                                 <Path Data="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <DatePickerTextBox Controls:TextBoxHelper.Watermark="Select Date" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <DatePickerTextBox x:Name="UnitCompletionDate" Controls:TextBoxHelper.Watermark="Select Date" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>

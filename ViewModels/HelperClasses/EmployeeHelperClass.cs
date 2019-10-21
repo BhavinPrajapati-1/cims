@@ -1,16 +1,13 @@
 ﻿using CIMS.Models;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
 using CIMS.Views;
-using MahApps.Metro.Controls.Dialogs;
-using System;
 using System.Windows;
 
 namespace CIMS.ViewModels.HelperClasses
 {
     public class EmployeeHelperClass
     {
-        private MainWindowView main = (MainWindowView)Application.Current.MainWindow;
-        private UniversalHelper helper = new UniversalHelper();
+        private readonly UniversalHelper helper = new UniversalHelper();
         private readonly EmployeeViewModel thisVM = new EmployeeViewModel();
         private readonly EmployeeModel thisModel = new EmployeeModel();
         private EmployeeModel newModel = new EmployeeModel();
@@ -33,20 +30,6 @@ namespace CIMS.ViewModels.HelperClasses
             thisVM.EmailAddress = thisModel.EmailAddress;
         }
 
-        public bool CanDelete()
-        {
-            return (RecordExists());
-        }
-
-        public bool CanSave()
-        {
-            if (thisModel == null) return false;
-            bool result =
-                thisVM.FirstName != "" ||
-                thisVM.LastName != "" ||
-                thisVM.PositionId > 0;
-            return result;
-        }
 
         public void SaveItem(EmployeeModel updatedModel)
         {
@@ -84,10 +67,10 @@ namespace CIMS.ViewModels.HelperClasses
             return result;
         }
 
-        private bool RecordExists()
+        public bool RecordExists()
         {
             if (thisModel == null) return false;
-            bool result = thisModel.Position_ID != 0;
+            bool result = thisModel.ID != 0;
             return result;
         }
 
