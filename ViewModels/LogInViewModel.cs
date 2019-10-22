@@ -154,6 +154,7 @@ namespace CIMS.ViewModels
             await main.ShowMessageAsync("Welcome! " + CurrentUser.EmployeeFullName, "You are now signed in.");
             main.lblEmployeeFullName.Content = CurrentUser.EmployeeFullName;
             main.lblAccessTypeName.Content = CurrentUser.AccessTypeName;
+            main.lblEmployeeID.Content = CurrentUser.Employee_ID;
         }
     }
 }

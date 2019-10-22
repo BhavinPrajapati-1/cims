@@ -17,19 +17,22 @@ namespace CIMS.Models
         public string UnitTypeName { get; set; }
         public int UnitStatus_ID { get; set; }
         public string UnitStatusName { get; set; }
-        public object Image { get; set; }
-        public int ImageExists { get; set; }
-        public bool HasImage
+        public byte[] Image { get; set; }
+        public string Notes { get; set; }
+        public int Employee_ID { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeMiddleName { get; set; }
+        public string EmployeeFullName
         {
             get
             {
-                bool result = Convert.ToInt32(ImageExists) == 1 ? true : false;
-                return result;
+                string fullName = $"{EmployeeFirstName} {EmployeeMiddleName} {EmployeeLastName}";
+                return fullName.Replace("  ", " ");
             }
         }
-        public string Notes { get; set; }
-        public int User_ID { get; set; }
-        
+
+
         public string Headers
         {
             get

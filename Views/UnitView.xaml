@@ -210,7 +210,7 @@
 
                     <WrapPanel x:Name="LeftSideUP" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Margin="10,10,3,0" Height="721">
                         <WrapPanel x:Name="buttons2UP" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,20">
-                            <Button  x:Name="RefreshUnitProgressTable"  Margin="15" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"
+                            <Button  x:Name="RefreshProgressTable"  Margin="15" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"
                             ToolTip="Edit Employee Details" Width="60" Height="60" BorderBrush="DarkBlue" BorderThickness="3" Background="LightBlue" >
                                 <Viewbox Width="40" Height="40">
                                     <Canvas Width="24" Height="24">
@@ -219,7 +219,7 @@
                                 </Viewbox>
                             </Button>
 
-                            <Button x:Name="DeleteUnitProgress" Margin="15" ToolTip="Delete Selected Employee From Records"
+                            <Button x:Name="DeleteProgress" Margin="15" ToolTip="Delete Selected Employee From Records"
                             Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" 
                             Width="60" Height="60" BorderBrush="Red" BorderThickness="3" Background="Pink">
                                 <Viewbox Width="40" Height="40">
@@ -230,20 +230,21 @@
                             </Button>
                         </WrapPanel>
 
-                        <DataGrid x:Name="ProgressOfUnitzs" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
-                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"
+                        <DataGrid x:Name="ProgressOfUnits" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="300" HorizontalContentAlignment="Center"
+                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="800" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Upload Date" Binding="{Binding Path=UploadDate}"/>
-                                <DataGridTextColumn Header="Unit Name" Binding="{Binding Path=Name}"/>
+                                <DataGridTextColumn Header="Unit Name" Binding="{Binding Path=UnitName}"/>
                                 <DataGridTextColumn Header="Unit Type" Binding="{Binding Path=UnitTypeName}"/>
-                                <DataGridTextColumn Header="Unit Address" Binding="{Binding Path=Address}"/>
-                                <DataGridTextColumn Header="Status" Binding="{Binding Path=StatusName}"/>
-                                <DataGridTextColumn Header="Notes" Binding="{Binding Path=StartDate}"/>
-                                <DataGridCheckBoxColumn Header="Image File" Binding="{Binding Path=ImageExists}"/>
-                                <DataGridTextColumn Header="Uploaded by" Binding="{Binding Path=UserName}"/>
+                                <DataGridTextColumn Header="Address" Binding="{Binding Path=UnitAddress}"/>
+                                <DataGridTextColumn Header="Status" Binding="{Binding Path=UnitStatusName}"/>
+                                <DataGridTextColumn Header="Uploaded by" Binding="{Binding Path=EmployeeFullName}"/>
                             </DataGrid.Columns>
                         </DataGrid>
+                        <WrapPanel Background="Transparent" HorizontalAlignment="Center">
+                            <Image x:Name="ConvertedImage"  Height="260" Width="600" Margin="20"/>
+                        </WrapPanel>
                     </WrapPanel>
 
                     <Border x:Name="RightSideUP" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="30,30,30,30" BorderBrush="Black" BorderThickness="2">
@@ -258,7 +259,8 @@
                                                 <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <ComboBox Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <ComboBox ItemsSource="{Binding UnitNames}" SelectedItem="{Binding SelectedUnitName}" SelectedValue="{Binding SelectedUnitName_UnitName}"
+                                                  Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -285,7 +287,8 @@
                                                 <Path Data="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,14.5 12,18 12,18C12,18 8.2,14.5 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,10A1.5,1.5 0 0,0 10.5,11.5A1.5,1.5 0 0,0 12,13A1.5,1.5 0 0,0 13.5,11.5A1.5,1.5 0 0,0 12,10Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <TextBox IsEnabled="False" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <TextBox Text="{Binding Path=UnitAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            IsEnabled="False" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -298,7 +301,8 @@
                                                 <Path Data="M11.97,19.88C10.93,20.26 9.78,19.72 9.4,18.69C9,17.65 9.55,16.5 10.59,16.13C11.63,15.75 12.78,16.28 13.16,17.31C13.54,18.35 13,19.5 11.97,19.88M9.9,14.25C7.83,15 6.76,17.3 7.5,19.38C8.28,21.45 10.58,22.5 12.66,21.75C14.73,21 15.79,18.7 15.04,16.63C14.28,14.55 11.97,13.5 9.9,14.25M15.94,4.58L9.37,7L10.75,10.74L17.32,8.33M20.32,13.62L15.54,15.37C15.71,15.66 15.85,15.96 15.97,16.28C16.09,16.6 16.17,16.93 16.22,17.25L21,15.5M19.54,8.58L11.09,11.68L11.58,13C12.83,13.09 14,13.64 14.89,14.55L20.92,12.34M2,2V4H5.09L8.66,13.75C8.94,13.57 9.24,13.43 9.56,13.31C9.88,13.19 10.21,13.11 10.53,13.06L6.5,2" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <ComboBox Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <ComboBox ItemsSource="{Binding UnitStatuses}" SelectedItem="{Binding SelectedUnitStatuse}" SelectedValue="{Binding SelectedUnitStatuse_UnitStatusName}"
+                                            Controls:TextBoxHelper.Watermark="Select Value" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -311,7 +315,7 @@
                                                 <Path Data="M14,10H19.5L14,4.5V10M5,3H15L21,9V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3M5,12V14H19V12H5M5,16V18H14V16H5Z" Fill="Black" />
                                             </Canvas>
                                         </Viewbox>
-                                        <TextBox Controls:TextBoxHelper.Watermark="Enter Notes" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <TextBox x:Name="Notes" Controls:TextBoxHelper.Watermark="Enter Notes" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
@@ -319,17 +323,19 @@
                                 <WrapPanel  Orientation="Vertical" VerticalAlignment="Stretch">
                                     <Label Content="UPLOAD IMAGE:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
                                     <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightSeaGreen">
-                                        <TextBox IsEnabled="False" Controls:TextBoxHelper.Watermark="Select File..." BorderBrush="Green" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
-                                        <Viewbox Width="37" Height="37">
-                                            <Canvas Width="24" Height="24">
-                                                <Path Data="M5,3A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H14.09C14.03,20.67 14,20.34 14,20C14,19.32 14.12,18.64 14.35,18H5L8.5,13.5L11,16.5L14.5,12L16.73,14.97C17.7,14.34 18.84,14 20,14C20.34,14 20.67,14.03 21,14.09V5C21,3.89 20.1,3 19,3H5M19,16V19H16V21H19V24H21V21H24V19H21V16H19Z" Fill="Black" />
-                                            </Canvas>
-                                        </Viewbox>
+                                        <TextBox x:Name="FileLocation" IsEnabled="False" Controls:TextBoxHelper.Watermark="Select File..." Height="60" TextWrapping="WrapWithOverflow" BorderBrush="Green" HorizontalContentAlignment="Left" BorderThickness="2" FontSize="20" Width="350"/>
+                                        <Button x:Name="SelectImage" BorderBrush="Black" BorderThickness="2">
+                                            <Viewbox Width="37" Height="37">
+                                                <Canvas Width="24" Height="24">
+                                                    <Path Data="M5,3A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H14.09C14.03,20.67 14,20.34 14,20C14,19.32 14.12,18.64 14.35,18H5L8.5,13.5L11,16.5L14.5,12L16.73,14.97C17.7,14.34 18.84,14 20,14C20.34,14 20.67,14.03 21,14.09V5C21,3.89 20.1,3 19,3H5M19,16V19H16V21H19V24H21V21H24V19H21V16H19Z" Fill="Black" />
+                                                </Canvas>
+                                            </Viewbox>
+                                        </Button>                                    
                                     </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
                             <WrapPanel Margin="0,30,0,0" HorizontalAlignment="Center">
-                                <Button  x:Name="SaveUnitProgress" Style="{DynamicResource SquareButtonStyle}" Margin="10,0"
+                                <Button  x:Name="SaveProgress" Style="{DynamicResource SquareButtonStyle}" Margin="10,0"
                 Width="150"  BorderBrush="Green" BorderThickness="3" Background="LightGreen">
                                     <WrapPanel Orientation="Horizontal">
                                         <Viewbox Width="35" Height="35">
@@ -340,7 +346,7 @@
                                         <Label Content="SAVE" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
                                     </WrapPanel>
                                 </Button>
-                                <Button  x:Name="ClearUnitFieldsProgress" Style="{DynamicResource SquareButtonStyle}"  Margin="10,0"
+                                <Button  x:Name="ClearProgressFields" Style="{DynamicResource SquareButtonStyle}"  Margin="10,0"
                 Width="150"  BorderBrush="Red" BorderThickness="3" Background="Pink" >
                                     <WrapPanel Orientation="Horizontal">
                                         <Viewbox Width="35" Height="35">

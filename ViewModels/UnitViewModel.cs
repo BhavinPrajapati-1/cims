@@ -1,27 +1,33 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
+using System.Windows;
+using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using CIMS.Models;
 using CIMS.Models.Validators;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
 using CIMS.ViewModels.HelperClasses;
+using CIMS.Views;
 using FluentValidation.Results;
 
 namespace CIMS.ViewModels
 {
     public class UnitViewModel:Screen
     {
+        MainWindowView main = (MainWindowView)Application.Current.MainWindow;
         private readonly UniversalHelper universalHelper;
         private UnitProgressHelperClass upHelper;
         private UnitHelperClass uHelper;
 
         public UnitViewModel()
         {
+            universalHelper = new UniversalHelper();
             Units = new BindableCollection<UnitModel>(Read.Units());
             ProgressOfUnits = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
+            UnitNames = new BindableCollection<string>(Read.Dropdown("Unit"));
             UnitTypes = new BindableCollection<string>(Read.Dropdown("UnitType"));
             UnitStatuses = new BindableCollection<string>(Read.Dropdown("UnitStatus"));
-            universalHelper = new UniversalHelper();
         }
 
 
@@ -30,6 +36,7 @@ namespace CIMS.ViewModels
             var conductor = this.Parent as IConductor;
             conductor.ActivateItem(new HomeViewModel());
         }
+
         #region Unit
         public void RefreshUnitTable()
         {
@@ -239,6 +246,73 @@ namespace CIMS.ViewModels
         #endregion
 
         #region UnitProgress
+        public void RefreshProgressTable()
+        {
+            ClearProgressFields();
+        }
+
+        private void ClearProgressFields()
+        {
+            UnitName = "";
+            SelectedUnitType = null;
+            SelectedUnitStatuse = null;
+            UnitAddress = "";
+            UnitStartDate = null;
+            UnitCompletionDate = null;
+            ProgressOfUnits = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
+            SelectedProgressOfUnit = new UnitProgressModel();
+        }
+
+        public void SaveProgress()
+        {
+            UnitProgressModel currentProgress = new UnitProgressModel();
+            CollectProgressDetails(currentProgress);
+            UnitProgressValidator validator = new UnitProgressValidator();
+            ValidationResult result = validator.Validate(currentProgress);
+            if (result.IsValid == false)
+            {
+                string errorMessage = (String.Join(Environment.NewLine + "   • ",
+                 result.Errors.Select(error => error.ErrorMessage)));
+                universalHelper.MessageDialog("Saving of data failed!", "   • " + errorMessage);
+                return;
+            }
+            else
+            {
+                upHelper.SaveItem(currentProgress);
+                ClearUnitFields();
+            }
+        }
+
+        private void CollectProgressDetails(UnitProgressModel currentProgress)
+        {
+            int statusID = Read.DropdownID("UnitStatus", SelectedUnitStatuse).FirstOrDefault();
+            int typeID = Read.DropdownID("UnitType", SelectedUnitType).FirstOrDefault();
+            currentProgress.UnitName = UnitName;
+            currentProgress.UnitTypeName = SelectedUnitType;
+            currentProgress.UnitType_ID = typeID;
+            currentProgress.UnitStatusName = SelectedUnitStatuse;
+            currentProgress.UnitStatus_ID = statusID;
+            currentProgress.UnitAddress = UnitAddress;
+            currentProgress.Image = upHelper.ReadImageFile(FileLocation);
+            currentProgress.Employee_ID = (int)main.lblEmployeeID.Content;
+        }
+        public void DeleteProgress()
+        {
+            if (!upHelper.RecordExists()) return;
+            string message = " Are you sure you want to delete the selected item?";
+            if (universalHelper.HasAgreed(message, "Delete Unit Progress"))
+            {
+                Delete.UnitProgress(SelectedProgressOfUnit);
+                ClearProgressFields();
+            }
+        }
+
+        public void SelectImage()
+        {
+            FileLocation = upHelper.ImageFilePath();
+            UnitImage = upHelper.ReadImageFile(FileLocation);
+        }
+
         //-----VM Properties
 
 
@@ -271,8 +345,82 @@ namespace CIMS.ViewModels
                 NotifyOfPropertyChange(() => SelectedProgressOfUnit);
             }
         }
+        private BindableCollection<string> _unitNames = new BindableCollection<string>();
+        public BindableCollection<string> UnitNames
+        {
+            get
+            {
+                return _unitNames;
+            }
+            set
+            {
+                _unitNames = value;
+                NotifyOfPropertyChange(() => UnitNames);
+            }
+        }
 
-
+        private string _selectedUnitName;
+        public string SelectedUnitName
+        {
+            get
+            {
+                return _selectedUnitName;
+            }
+            set
+            {
+                _selectedUnitName = value;
+                NotifyOfPropertyChange(() => SelectedUnitName);
+            }
+        }
+        private byte[] _unitImage;
+        public byte[] UnitImage
+        {
+            get
+            {
+                return _unitImage;
+            }
+            set
+            {
+                _unitImage = value;
+                NotifyOfPropertyChange(() => UnitImage);
+            }
+        }
+        private BitmapImage _convertedImage;
+        public BitmapImage ConvertedImage
+        {
+            get
+            {
+                return _convertedImage;
+            }
+            set
+            {
+                _convertedImage=value;
+                NotifyOfPropertyChange(() => ConvertedImage);
+            }
+        }
+        private string _notes;
+        public string Notes
+        {
+            get
+            {
+                return _notes;
+            }
+            set
+            {
+                _notes = value;
+                NotifyOfPropertyChange(() => Notes);
+            }
+        }
+        private string _fileLocation;
+        public string FileLocation
+        {
+            get { return _fileLocation; }
+            set
+            {
+                _fileLocation = value;
+                NotifyOfPropertyChange(() => FileLocation);
+            }
+        }
         #endregion
 
     }

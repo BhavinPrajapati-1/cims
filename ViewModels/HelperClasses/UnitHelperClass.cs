@@ -1,7 +1,5 @@
 ﻿using CIMS.Models;
 using CIMS.ViewModels.DatabaseConnection.CRUD;
-using CIMS.Views;
-using System.Windows;
 
 namespace CIMS.ViewModels.HelperClasses
 {
