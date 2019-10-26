@@ -50,7 +50,7 @@
                     </Button>
                 </WrapPanel>
                 <DataGrid x:Name="Employees" Grid.Column="1" Grid.Row="1" MinWidth="800" MinHeight="500" HorizontalContentAlignment="Center"
-                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16"
+                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16" IsReadOnly="True"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False"  Width="519" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Full Name" Binding="{Binding Path=FullName}"/>

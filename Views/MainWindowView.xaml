@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:uc="clr-namespace:CIMS.Views"
-        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Inventory Management System" Height="600" Width="600" 
         Background="Beige" ResizeMode="CanMinimize">
 
