@@ -15,7 +15,7 @@ namespace CIMS.Models
         public string UnitAddress { get; set; }
         public int UnitType_ID { get; set; }
         public string UnitTypeName { get; set; }
-        public int UnitStatus_ID { get; set; }
+        public int Status_ID { get; set; }
         public string UnitStatusName { get; set; }
         public byte[] Image { get; set; }
         public string Notes { get; set; }
@@ -37,7 +37,7 @@ namespace CIMS.Models
         {
             get
             {
-                return "ID,UploadDate,Unit_ID,Image,Status_ID,Notes,User_ID";
+                return "UploadDate,Unit_ID,Image,Status_ID,Notes,Employee_ID";
             }
         }
     }

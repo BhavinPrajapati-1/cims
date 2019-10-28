@@ -69,9 +69,12 @@ namespace CIMS.ViewModels
 
         public void DeleteData()
         {
+            if (!helper.RecordExists()) return;
             string message = "Are you sure you want to delete " + Name + "?";
-            universalHelper.YesNoDialog(message, "");
+            bool canDelete = universalHelper.HasAgreed(message, "Delete Supplier");
+            if (canDelete == false) return;
             Delete.Supplier(SelectedSupplier);
+            universalHelper.MessageDialog("Item deleted successfully.", "");
             ClearFields();
         }
 

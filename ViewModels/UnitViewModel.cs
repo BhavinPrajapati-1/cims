@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -15,21 +14,20 @@ namespace CIMS.ViewModels
 {
     public class UnitViewModel:Screen
     {
-        MainWindowView main = (MainWindowView)Application.Current.MainWindow;
+        private MainWindowView main = (MainWindowView)Application.Current.MainWindow;
         private readonly UniversalHelper universalHelper;
         private UnitProgressHelperClass upHelper;
         private UnitHelperClass uHelper;
-
         public UnitViewModel()
         {
-            universalHelper = new UniversalHelper();
-            Units = new BindableCollection<UnitModel>(Read.Units());
             ProgressOfUnits = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
+            Units = new BindableCollection<UnitModel>(Read.Units());
             UnitNames = new BindableCollection<string>(Read.Dropdown("Unit"));
             UnitTypes = new BindableCollection<string>(Read.Dropdown("UnitType"));
             UnitStatuses = new BindableCollection<string>(Read.Dropdown("UnitStatus"));
+            RightSideUP = false;
+            universalHelper = new UniversalHelper();
         }
-
 
         public void LoadHome()
         {
@@ -45,6 +43,7 @@ namespace CIMS.ViewModels
 
         private void ClearUnitFields()
         {
+            int selectedTab = SelectedTabIndex;
             UnitName = "";
             SelectedUnitType = null;
             SelectedUnitStatuse = null;
@@ -53,6 +52,7 @@ namespace CIMS.ViewModels
             UnitCompletionDate = null;
             Units = new BindableCollection<UnitModel>(Read.Units());
             SelectedUnit = new UnitModel();
+            SelectedTabIndex = selectedTab;
         }
 
         public void SaveUnit()
@@ -248,11 +248,18 @@ namespace CIMS.ViewModels
         #region UnitProgress
         public void RefreshProgressTable()
         {
+            RightSideUP = false;
             ClearProgressFields();
+        }
+        public void AddNewProgress()
+        {
+            RefreshProgressTable();
+            RightSideUP = true;
         }
 
         private void ClearProgressFields()
         {
+            int selectedTab = SelectedTabIndex;
             UnitName = "";
             SelectedUnitType = null;
             SelectedUnitStatuse = null;
@@ -261,8 +268,16 @@ namespace CIMS.ViewModels
             UnitCompletionDate = null;
             ProgressOfUnits = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
             SelectedProgressOfUnit = new UnitProgressModel();
+            LoadUnit();
+            SelectedTabIndex = selectedTab;
         }
 
+        public void LoadUnit()
+        {
+            var conductor = this.Parent as IConductor;
+            conductor.ActivateItem(new UnitViewModel());
+            conductor.ActivateItem(new UnitViewModel());
+        }
         public void SaveProgress()
         {
             UnitProgressModel currentProgress = new UnitProgressModel();
@@ -279,20 +294,35 @@ namespace CIMS.ViewModels
             else
             {
                 upHelper.SaveItem(currentProgress);
-                ClearUnitFields();
+                RefreshProgressTable();
+                RightSideUP = false;
             }
         }
 
+        public void SetUnitValues()
+        {
+            if (SelectedUnitName != "" && SelectedUnitName != null)
+            {
+                UnitProgressModel unit = new UnitProgressModel();
+                unit = Read.UnitProgress().Where(x => x.UnitName== SelectedUnitName).FirstOrDefault();
+                CurrentUnitType = unit.UnitTypeName; 
+                CurrentAddress = unit.UnitAddress;
+            }
+        }
         private void CollectProgressDetails(UnitProgressModel currentProgress)
         {
             int statusID = Read.DropdownID("UnitStatus", SelectedUnitStatuse).FirstOrDefault();
-            int typeID = Read.DropdownID("UnitType", SelectedUnitType).FirstOrDefault();
-            currentProgress.UnitName = UnitName;
-            currentProgress.UnitTypeName = SelectedUnitType;
+            int typeID = Read.DropdownID("UnitType", CurrentUnitType).FirstOrDefault();
+            UnitProgressModel unit = new UnitProgressModel();
+            unit = Read.UnitProgress().Where(x => x.UnitName == SelectedUnitName).FirstOrDefault();
+            currentProgress.Unit_ID = unit.ID;
+            currentProgress.UnitName = SelectedUnitName;
+            currentProgress.UnitTypeName = CurrentUnitType;
             currentProgress.UnitType_ID = typeID;
             currentProgress.UnitStatusName = SelectedUnitStatuse;
-            currentProgress.UnitStatus_ID = statusID;
-            currentProgress.UnitAddress = UnitAddress;
+            currentProgress.Status_ID = statusID;
+            currentProgress.Notes = Notes;
+            currentProgress.UnitAddress = CurrentAddress;
             currentProgress.Image = upHelper.ReadImageFile(FileLocation);
             currentProgress.Employee_ID = (int)main.lblEmployeeID.Content;
         }
@@ -303,14 +333,18 @@ namespace CIMS.ViewModels
             if (universalHelper.HasAgreed(message, "Delete Unit Progress"))
             {
                 Delete.UnitProgress(SelectedProgressOfUnit);
+                message = "Item deleted successfully.";
+                universalHelper.MessageDialog(message, "");
                 ClearProgressFields();
             }
         }
+
 
         public void SelectImage()
         {
             FileLocation = upHelper.ImageFilePath();
             UnitImage = upHelper.ReadImageFile(FileLocation);
+            ConvertedImage = upHelper.ByteArrayToImage(UnitImage);
         }
 
         //-----VM Properties
@@ -336,7 +370,10 @@ namespace CIMS.ViewModels
             get
             {
                 if (_selectedProgressUnits != null)
+                {
                     upHelper = new UnitProgressHelperClass(_selectedProgressUnits, this);
+                    RightSideUP = false;
+                }
                 return _selectedProgressUnits;
             }
             set
@@ -419,6 +456,56 @@ namespace CIMS.ViewModels
             {
                 _fileLocation = value;
                 NotifyOfPropertyChange(() => FileLocation);
+            }
+        }
+        private string _currentUnit;
+        public string CurrentUnit
+        {
+            get { return _currentUnit; }
+            set
+            {
+                _currentUnit = value;
+                NotifyOfPropertyChange(() => CurrentUnit);
+            }
+        }
+        private string _currentAddress;
+        public string CurrentAddress
+        {
+            get { return _currentAddress; }
+            set
+            {
+                _currentAddress = value;
+                NotifyOfPropertyChange(() => CurrentAddress);
+            }
+        }
+        private string _currentUnitType;
+        public string CurrentUnitType
+        {
+            get { return _currentUnitType; }
+            set
+            {
+                _currentUnitType = value;
+                NotifyOfPropertyChange(() => CurrentUnitType);
+            }
+        }
+        private bool _isRightSideUPVisible;
+        public bool RightSideUP
+        {
+            get { return _isRightSideUPVisible; }
+            set
+            {
+                _isRightSideUPVisible = value;
+                NotifyOfPropertyChange(() => RightSideUP);
+            }
+        }
+        private int _selectedTabIndex;
+        public int SelectedTabIndex
+        {
+            get { return _selectedTabIndex; }
+            set
+            {
+                _selectedTabIndex = value;
+                NotifyOfPropertyChange(() => SelectedTabIndex);
             }
         }
         #endregion

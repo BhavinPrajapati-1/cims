@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using CIMS.Views;
 using Application = System.Windows.Application;
 using System.Windows.Media.Imaging;
+using System;
 
 namespace CIMS.ViewModels.HelperClasses
 {
@@ -27,25 +28,19 @@ namespace CIMS.ViewModels.HelperClasses
         private void PassValuesToControls()
         {
             if (thisModel == null) return;
-            thisVM.UnitName = thisModel.UnitName;
-            thisVM.UnitAddress = thisModel.UnitAddress;
-            thisVM.SelectedUnitType = thisModel.UnitTypeName;
-            thisVM.SelectedUnitStatuse = thisModel.UnitStatusName;
-            thisVM.Notes = thisModel.Notes;
             thisVM.UnitImage = thisModel.Image;
             thisVM.ConvertedImage = ByteArrayToImage(thisModel.Image);
-
         }
 
         public void SaveItem(UnitProgressModel updatedModel)
         {
+            MainWindowView main = (MainWindowView)Application.Current.MainWindow;
             this.newModel = updatedModel;
-            if(!RecordExists())
-            {
-                Create.UnitProgress(updatedModel);
-                helper.MessageDialog("Unit Progress data has been added successfully!",
-                    updatedModel.UnitName);
-            }
+            updatedModel.Employee_ID = (int)main.lblEmployeeID.Content;
+            updatedModel.UploadDate = DateTime.Now.ToString("M-d-yyyy hh:mm:ss");
+            Create.UnitProgress(updatedModel);
+            helper.MessageDialog("Unit Progress data has been added successfully!",
+                updatedModel.UnitName);
         }
         public bool RecordExists()
         {
@@ -68,13 +63,20 @@ namespace CIMS.ViewModels.HelperClasses
 
         public byte[] ReadImageFile(string imageLocation)
         {
-            byte[] imageData = null;
-            FileInfo fileInfo = new FileInfo(imageLocation);
-            long imageFileLength = fileInfo.Length;
-            FileStream fs = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
-            imageData = br.ReadBytes((int)imageFileLength);
-            return imageData;
+            try
+            {
+                byte[] imageData = null;
+                FileInfo fileInfo = new FileInfo(imageLocation);
+                long imageFileLength = fileInfo.Length;
+                FileStream fs = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                imageData = br.ReadBytes((int)imageFileLength);
+                return imageData;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         private byte[] ImageToByteArray(Image imageIn)
         {
@@ -84,7 +86,7 @@ namespace CIMS.ViewModels.HelperClasses
             return ms.ToArray();
         }
 
-        private BitmapImage ByteArrayToImage(byte[] byteArrayIn)
+        public BitmapImage ByteArrayToImage(byte[] byteArrayIn)
         {
             if (byteArrayIn == null || byteArrayIn.Length == 0) return null;
             var image = new BitmapImage();

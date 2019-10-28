@@ -23,6 +23,7 @@ namespace CIMS.ViewModels
         {
             var conductor = this.Parent as IConductor;
             conductor.ActivateItem(new UnitViewModel());
+            conductor.ActivateItem(new UnitViewModel());
         }
         public void LoadInventory()
         {

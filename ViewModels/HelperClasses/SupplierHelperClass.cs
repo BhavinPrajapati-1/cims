@@ -81,7 +81,7 @@ namespace CIMS.ViewModels.HelperClasses
             return result;
         }
 
-        private bool RecordExists()
+        public bool RecordExists()
         {
             if (thisModel == null) return false;
             bool result = thisModel.ID != 0;

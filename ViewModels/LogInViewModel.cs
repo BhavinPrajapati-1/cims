@@ -139,7 +139,7 @@ namespace CIMS.ViewModels
                 PromptSuccesfulLogIn();
                 LogInErrorMessage = "";
                 LogInSuccessful = true;
-
+                LogInModel.ThisUser = CurrentUser;
             }
         }
 

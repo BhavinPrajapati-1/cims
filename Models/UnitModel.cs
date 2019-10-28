@@ -22,7 +22,7 @@ namespace CIMS.Models
         {
             get
             {
-                return "ID,Name,Type_ID,Address,Status_ID,StartDate,CompletionDate";
+                return "Name,Type_ID,Address,Status_ID,StartDate,CompletionDate";
             }
         }
     }

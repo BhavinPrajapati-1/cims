@@ -58,7 +58,7 @@ namespace CIMS.ViewModels
         {
             string largeText = "Are you sure you want to delete " + "Property" + "?"; //***UPDATE HERE***
             string smallText = "";  
-            universalHelper.YesNoDialog(largeText, smallText);
+            universalHelper.MessageDialog(largeText, smallText);
             Delete.User(SelectedUser);
             ClearFields();
         }

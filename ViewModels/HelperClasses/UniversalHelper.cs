@@ -13,12 +13,7 @@ namespace CIMS.ViewModels.HelperClasses
         {
             await main.ShowMessageAsync(largeText, smalltext);
         }
-
-        public async void YesNoDialog(string largeText, string smalltext)
-        {
-            await main.ShowMessageAsync(largeText, smalltext);
-        }
-
+        
         public bool HasAgreed(string message, string title)
         {
             DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(message, title, 

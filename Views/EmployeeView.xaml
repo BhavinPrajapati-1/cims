@@ -49,9 +49,10 @@
                         </Viewbox>
                     </Button>
                 </WrapPanel>
-                <DataGrid x:Name="Employees" Grid.Column="1" Grid.Row="1" MinWidth="800" MinHeight="500" HorizontalContentAlignment="Center"
+                <DataGrid x:Name="Employees" Grid.Column="1" Grid.Row="1" Width="800" Height="530"
                      BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16" IsReadOnly="True"
-                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False"  Width="519" >
+                     CanUserAddRows="False" CanUserDeleteRows="False" GridLinesVisibility="All" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Full Name" Binding="{Binding Path=FullName}"/>
                         <DataGridTextColumn Header="Position" Binding="{Binding Path=PositionName}"/>

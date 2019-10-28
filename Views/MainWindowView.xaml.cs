@@ -10,12 +10,14 @@ namespace CIMS.Views
     public partial class MainWindowView : MetroWindow
     {
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
-            LogInViewModel viewModel = new LogInViewModel();
-            //viewModel.LoadHome();
-            var conductor = viewModel.Parent as IConductor;
-            conductor.ActivateItem(new HomeViewModel());
+            base.OnRenderSizeChanged(sizeInfo);
+            if (sizeInfo.NewSize.Width == 600) return;
+            if ( sizeInfo.HeightChanged)
+                this.Top += (sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height) / 64;
+            if (sizeInfo.WidthChanged)
+                this.Left += (sizeInfo.NewSize.Width - sizeInfo.PreviousSize.Width) / 32;
         }
     }
 

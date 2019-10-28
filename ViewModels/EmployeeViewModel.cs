@@ -77,7 +77,10 @@ namespace CIMS.ViewModels
         {
             if (!helper.RecordExists()) return;
             string message = "Are you sure you want to delete " + SelectedEmployee.FullName + "?";
-            universalHelper.YesNoDialog(message, "");
+            bool canDelete = universalHelper.HasAgreed(message, "Delete Employee");
+            if (canDelete == false) return;
+            message = "Item deleted successfully.";
+            universalHelper.MessageDialog(message, "");
             Delete.Employee(SelectedEmployee);
             ClearFields();
         }

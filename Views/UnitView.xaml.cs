@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIMS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,11 @@ using System.Windows.Shapes;
 
 namespace CIMS.Views
 {
-    /// <summary>
-    /// Interaction logic for UnitView.xaml
-    /// </summary>
     public partial class UnitView : UserControl
     {
         public UnitView()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
     }

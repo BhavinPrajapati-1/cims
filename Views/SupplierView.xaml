@@ -55,9 +55,9 @@
                         </Viewbox>
                     </Button>
                 </WrapPanel>
-                <DataGrid x:Name="Suppliers" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="300" HorizontalContentAlignment="Center"
-                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"  FontSize="16"
-                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="519" >
+                <DataGrid x:Name="Suppliers" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center"
+                     BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16" IsReadOnly="True"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False"  Width="700" Height="300">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
                         <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"/>
