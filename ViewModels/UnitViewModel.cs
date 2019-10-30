@@ -268,7 +268,7 @@ namespace CIMS.ViewModels
             UnitCompletionDate = null;
             ProgressOfUnits = new BindableCollection<UnitProgressModel>(Read.UnitProgress());
             SelectedProgressOfUnit = new UnitProgressModel();
-            LoadUnit();
+            //LoadUnit();
             SelectedTabIndex = selectedTab;
         }
 

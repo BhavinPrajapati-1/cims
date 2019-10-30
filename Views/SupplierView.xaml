@@ -35,7 +35,7 @@
         <StackPanel x:Name="content" Orientation="Vertical"  Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-7,0,7,0">
 
-            <WrapPanel x:Name="employeeGrid" Visibility="Visible" Orientation="Vertical"
+            <WrapPanel x:Name="employeeGrid" Visibility="Visible" Orientation="Vertical" 
                    HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,0,0,30">
 
                 <WrapPanel x:Name="buttons" Orientation="Horizontal" HorizontalAlignment="Right">
@@ -55,13 +55,14 @@
                         </Viewbox>
                     </Button>
                 </WrapPanel>
-                <DataGrid x:Name="Suppliers" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center"
+                <DataGrid x:Name="Suppliers" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" GridLinesVisibility="All"
                      BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16" IsReadOnly="True"
-                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False"  Width="700" Height="300">
+                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False"  Width="800" Height="300"
+                           VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
-                        <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"/>
-                        <DataGridTextColumn Header="Contact Number" Binding="{Binding Path=ContactNumber}"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="*" />
+                        <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}" Width="*"/>
+                        <DataGridTextColumn Header="Contact Number" Binding="{Binding Path=ContactNumber}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
 

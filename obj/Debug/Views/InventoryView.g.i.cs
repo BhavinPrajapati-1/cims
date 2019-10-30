@@ -129,7 +129,7 @@ namespace CIMS.Views {
         #line hidden
         
         
-        #line 96 "..\..\..\Views\InventoryView.xaml"
+        #line 95 "..\..\..\Views\InventoryView.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox LastName;
         

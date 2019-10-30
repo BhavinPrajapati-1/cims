@@ -68,14 +68,15 @@
 
                         <DataGrid x:Name="Units" Grid.Column="1" Grid.Row="1" MinWidth="600" MinHeight="500" HorizontalContentAlignment="Center"
                      BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False" FontSize="16"  IsReadOnly="True"
-                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="800" >
+                          HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="800" 
+                                  GridLinesVisibility="All" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Unit Name" Binding="{Binding Path=Name}"/>
-                                <DataGridTextColumn Header="Unit Type" Binding="{Binding Path=TypeName}"/>
-                                <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"/>
-                                <DataGridTextColumn Header="Status" Binding="{Binding Path=StatusName}"/>
-                                <DataGridTextColumn Header="Start Date" Binding="{Binding Path=StartDate}"/>
-                                <DataGridTextColumn Header="Completion Date" Binding="{Binding Path=CompletionDate}"/>
+                                <DataGridTextColumn Width="*" Header="Unit Name" Binding="{Binding Path=Name}"/>
+                                <DataGridTextColumn Width="Auto" Header="Unit Type" Binding="{Binding Path=TypeName}"/>
+                                <DataGridTextColumn Width="Auto" Header="Address" Binding="{Binding Path=Address}"/>
+                                <DataGridTextColumn Width="Auto" Header="Status" Binding="{Binding Path=StatusName}"/>
+                                <DataGridTextColumn Width="Auto" Header="Start Date" Binding="{Binding Path=StartDate}"/>
+                                <DataGridTextColumn Width="Auto" Header="Completion Date" Binding="{Binding Path=CompletionDate}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </WrapPanel>

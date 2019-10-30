@@ -30,7 +30,7 @@
         <DockPanel x:Name="Content" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch">
             <DockPanel x:Name="LeftDock" DockPanel.Dock="Left" Margin="30">
                 <WrapPanel x:Name="Buttons" DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,0,25">
-                    <DockPanel Margin="0,0,20,0">
+                    <DockPanel Margin="0,0,15,0">
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="15,-15,15,0">
                             <Label Content="CLASS 1:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
                             <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightGreen">
@@ -41,7 +41,7 @@
                                 </Viewbox>
                                 <ComboBox x:Name="Class1Names" ToolTip="Position"
                                           ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" SelectedValue="{Binding SelectedEmployee_PositionName}"
-                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
+                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="310"
                                           Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
                         </WrapPanel>
@@ -55,7 +55,7 @@
                                 </Viewbox>
                                 <ComboBox x:Name="Class2Names" ToolTip="Position"
                                           ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" SelectedValue="{Binding SelectedEmployee_PositionName}"
-                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
+                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="310"
                                           Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
                         </WrapPanel>
@@ -78,13 +78,15 @@
                     </Button>
                 </WrapPanel>
 
-                <DataGrid Grid.Column="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Width="1000" DockPanel.Dock="Bottom" Grid.Row="2" IsReadOnly="True" />
+                <DataGrid Grid.Column="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Width="900" DockPanel.Dock="Bottom" 
+                          Grid.Row="2" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" GridLinesVisibility="All">
+                    
+                </DataGrid>
 
             </DockPanel>
             <DockPanel  x:Name="RightDock" DockPanel.Dock="Right">
-                <Border BorderBrush="Black" Grid.Row="2" Grid.Column="2" BorderThickness="2"  VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="20,30" >
+                <Border BorderBrush="Black" Grid.Row="2" Grid.Column="2" BorderThickness="2"  VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="15,20" >
                     <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30" >
-
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
                             <Label Content="ITEM CODE:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
                             <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightBlue">
@@ -96,6 +98,7 @@
                                 <TextBox x:Name="LastName" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
                         </WrapPanel>
+
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
                             <Label Content="BARCODE:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
                             <WrapPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="LightBlue">
@@ -166,7 +169,7 @@
                             </WrapPanel>
                         </WrapPanel>
 
-                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,40,10,10">
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,30,10,10">
                             <Button  x:Name="SaveData"  Width="150" BorderBrush="Green" BorderThickness="3" Background="LightGreen">
                                 <WrapPanel Orientation="Horizontal">
                                     <Viewbox Width="35" Height="35">

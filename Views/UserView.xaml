@@ -143,10 +143,10 @@
                      BorderBrush="Black" BorderThickness="3" Margin="10,0" AutoGenerateColumns="False"
                           HorizontalAlignment="Center" VerticalAlignment="Center" CanUserAddRows="False" CanUserDeleteRows="False" Width="519" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Full Name" Binding="{Binding Path=EmployeeFullName}"/>
-                            <DataGridTextColumn Header="Position" Binding="{Binding Path=EmployeePositionName}"/>
-                            <DataGridTextColumn Header="Username" Binding="{Binding Path=Name}"/>
-                            <DataGridTextColumn Header="Access Type" Binding="{Binding Path=AccessTypeName}"/>
+                            <DataGridTextColumn Width="*" Header="Full Name" Binding="{Binding Path=EmployeeFullName}"/>
+                            <DataGridTextColumn Width="Auto" Header="Position" Binding="{Binding Path=EmployeePositionName}"/>
+                            <DataGridTextColumn Width="Auto" Header="Username" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Width="Auto" Header="Access Type" Binding="{Binding Path=AccessTypeName}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <WrapPanel Orientation="Vertical" HorizontalAlignment="Center">
