@@ -118,7 +118,7 @@
                 </WrapPanel>
             </Controls:MetroTabItem>
 
-            <Controls:MetroTabItem Header="User List">
+            <Controls:MetroTabItem Header="User List" HorizontalAlignment="Right" Width="110">
                 
                 <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Visibility="Visible" Orientation="Vertical"
                     VerticalAlignment="Stretch" Margin="96,0,96,4">
