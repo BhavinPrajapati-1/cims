@@ -10,14 +10,14 @@ namespace CIMS.Models
     {
         public string ItemCode { get; set; }
         public int Class1_ID { get; set; }
-        public int Class1Name { get; set; }
+        public string Class1Name { get; set; }
         public int Class2_ID { get; set; }
-        public int Class2Name { get; set; }
+        public string Class2Name { get; set; }
         public int QuantityType_ID { get; set; }
-        public int QuantityTypeName { get; set; }
+        public string QuantityTypeName { get; set; }
         public int Barcode { get; set; }
         public string Description { get; set; }
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
 
         public string Headers
         {

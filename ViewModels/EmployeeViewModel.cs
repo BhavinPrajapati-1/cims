@@ -146,26 +146,10 @@ namespace CIMS.ViewModels
             set
             {
                 _selectedPosition = value;
-                //NotifyOfPropertyChange(() => PositionId);
                 NotifyOfPropertyChange(() => SelectedPosition);
             }
         }
 
-        //private int _positionId;
-        //public int PositionId
-        //{
-        //    get
-        //    {
-        //        _positionId = Read.DropdownID("EmployeePosition", SelectedPosition).FirstOrDefault();
-        //        return _positionId;
-        //    }
-        //    set
-        //    {
-        //        _positionId = value;
-        //        NotifyOfPropertyChange(() => PositionId);
-        //        NotifyOfPropertyChange(() => SelectedPosition);
-        //    }
-        //}
 
         private string _firstName;
         public string FirstName

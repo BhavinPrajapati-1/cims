@@ -30,7 +30,6 @@ namespace CIMS.ViewModels.HelperClasses
             thisVM.EmailAddress = thisModel.EmailAddress;
         }
 
-
         public void SaveItem(EmployeeModel updatedModel)
         {
             this.newModel = updatedModel;

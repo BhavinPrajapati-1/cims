@@ -127,6 +127,7 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Validators\EmployeeValidator.cs" />
+    <Compile Include="Models\Validators\InventoryValidator.cs" />
     <Compile Include="Models\Validators\SupplierValidator.cs" />
     <Compile Include="Models\Validators\UnitProgressValidator.cs" />
     <Compile Include="Models\Validators\UnitValidator.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="ViewModels\DatabaseViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\HelperClasses\EmployeeHelperClass.cs" />
+    <Compile Include="ViewModels\HelperClasses\InventoryHelperClass.cs" />
     <Compile Include="ViewModels\HelperClasses\PasswordBoxHelper.cs" />
     <Compile Include="ViewModels\HelperClasses\SupplierHelperClass.cs" />
     <Compile Include="ViewModels\HelperClasses\UnitHelperClass.cs" />

@@ -39,8 +39,8 @@
                                         <Path Data="M5,9.5L7.5,14H2.5L5,9.5M3,4H7V8H3V4M5,20A2,2 0 0,0 7,18A2,2 0 0,0 5,16A2,2 0 0,0 3,18A2,2 0 0,0 5,20M9,5V7H21V5H9M9,19H21V17H9V19M9,13H21V11H9V13Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <ComboBox x:Name="Class1Names" ToolTip="Position"
-                                          ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" SelectedValue="{Binding SelectedEmployee_PositionName}"
+                                <ComboBox x:Name="ClassOneFilter"
+                                          ItemsSource="{Binding ClassOnes}"
                                           IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="310"
                                           Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
@@ -53,8 +53,8 @@
                                         <Path Data="M5,9.5L7.5,14H2.5L5,9.5M3,4H7V8H3V4M5,20A2,2 0 0,0 7,18A2,2 0 0,0 5,16A2,2 0 0,0 3,18A2,2 0 0,0 5,20M9,5V7H21V5H9M9,19H21V17H9V19M9,13H21V11H9V13Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <ComboBox x:Name="Class2Names" ToolTip="Position"
-                                          ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" SelectedValue="{Binding SelectedEmployee_PositionName}"
+                                <ComboBox x:Name="ClassTwoFilter" ToolTip="Position"
+                                          ItemsSource="{Binding ClassTwos}"
                                           IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="310"
                                           Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
@@ -78,9 +78,16 @@
                     </Button>
                 </WrapPanel>
 
-                <DataGrid Grid.Column="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Width="900" DockPanel.Dock="Bottom" 
-                          Grid.Row="2" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" GridLinesVisibility="All">
-                    
+                <DataGrid x:Name="InventoryItems"  Grid.Column="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Width="900" DockPanel.Dock="Bottom" 
+                          AutoGenerateColumns="False" Grid.Row="2" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" GridLinesVisibility="All">
+                    <DataGridTextColumn Header="Item Code" Binding="{Binding Path=ItemCode}" Width="Auto"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" Width="*"/>
+                    <DataGridTextColumn Header="Barcode" Binding="{Binding Path=Barcode}" Width="Auto"/>
+                    <DataGridTextColumn Header="Class 1" Binding="{Binding Path=Class1Name}" Width="Auto"/>
+                    <DataGridTextColumn Header="Class 2" Binding="{Binding Path=Class2Name}" Width="Auto"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Path=Quantity}" Width="Auto"/>
+                    <DataGridTextColumn Header="Quantity Type" Binding="{Binding Path=QuantityTypeName}" Width="Auto"/>
+
                 </DataGrid>
 
             </DockPanel>
@@ -95,7 +102,7 @@
                                         <Path Data="M4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M4,6V18H11V6H4M20,18V6H18.76C19,6.54 18.95,7.07 18.95,7.13C18.88,7.8 18.41,8.5 18.24,8.75L15.91,11.3L19.23,11.28L19.24,12.5L14.04,12.47L14,11.47C14,11.47 17.05,8.24 17.2,7.95C17.34,7.67 17.91,6 16.5,6C15.27,6.05 15.41,7.3 15.41,7.3L13.87,7.31C13.87,7.31 13.88,6.65 14.25,6H13V18H15.58L15.57,17.14L16.54,17.13C16.54,17.13 17.45,16.97 17.46,16.08C17.5,15.08 16.65,15.08 16.5,15.08C16.37,15.08 15.43,15.13 15.43,15.95H13.91C13.91,15.95 13.95,13.89 16.5,13.89C19.1,13.89 18.96,15.91 18.96,15.91C18.96,15.91 19,17.16 17.85,17.63L18.37,18H20M8.92,16H7.42V10.2L5.62,10.76V9.53L8.76,8.41H8.92V16Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="LastName" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                <TextBox x:Name="ItemCode" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
                         </WrapPanel>
 
@@ -107,7 +114,7 @@
                                         <Path Data="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="EmailAddress" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                <TextBox x:Name="Barcode" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
                         </WrapPanel>
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
@@ -129,7 +136,10 @@
                                         <Path Data="M5,9.5L7.5,14H2.5L5,9.5M3,4H7V8H3V4M5,20A2,2 0 0,0 7,18A2,2 0 0,0 5,16A2,2 0 0,0 3,18A2,2 0 0,0 5,20M9,5V7H21V5H9M9,19H21V17H9V19M9,13H21V11H9V13Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="FirstName" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                <ComboBox x:Name="ClassOne" ToolTip="Position"
+                                          ItemsSource="{Binding ClassOnes}" SelectedItem="{Binding SelectedClassOne}" SelectedValue="{Binding SelectedInventoryItem_Class1Name}"
+                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
+                                          Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
                         </WrapPanel>
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
@@ -140,7 +150,10 @@
                                         <Path Data="M5,9.5L7.5,14H2.5L5,9.5M3,4H7V8H3V4M5,20A2,2 0 0,0 7,18A2,2 0 0,0 5,16A2,2 0 0,0 3,18A2,2 0 0,0 5,20M9,5V7H21V5H9M9,19H21V17H9V19M9,13H21V11H9V13Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="MiddleName" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                <ComboBox x:Name="ClassTwo" ToolTip="Position"
+                                          ItemsSource="{Binding ClassTwos}" SelectedItem="{Binding SelectedClassTwo}" SelectedValue="{Binding SelectedInventoryItem_Class2Name}"
+                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
+                                          Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
                         </WrapPanel>
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
@@ -151,10 +164,7 @@
                                         <Path Data="M4,17V9H2V7H6V17H4M22,15C22,16.11 21.1,17 20,17H16V15H20V13H18V11H20V9H16V7H20A2,2 0 0,1 22,9V10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 22,13.5V15M14,15V17H8V13C8,11.89 8.9,11 10,11H12V9H8V7H12A2,2 0 0,1 14,9V11C14,12.11 13.1,13 12,13H10V15H14Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <ComboBox x:Name="PositionNames1" ToolTip="Position"
-                                          ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" SelectedValue="{Binding SelectedEmployee_PositionName}"
-                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
-                                          Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
+                                <TextBox x:Name="Quantity" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
                             </WrapPanel>
                         </WrapPanel>
                         <WrapPanel  Orientation="Vertical" VerticalAlignment="Center">
@@ -165,7 +175,10 @@
                                         <Path Data="M7.78,7C9.08,7.04 10,7.53 10.57,8.46C11.13,9.4 11.41,10.56 11.39,11.95C11.4,13.5 11.09,14.73 10.5,15.62C9.88,16.5 8.95,16.97 7.71,17C6.45,16.96 5.54,16.5 4.96,15.56C4.38,14.63 4.09,13.45 4.09,12C4.09,10.55 4.39,9.36 5,8.44C5.59,7.5 6.5,7.04 7.78,7M7.75,8.63C7.31,8.63 6.96,8.9 6.7,9.46C6.44,10 6.32,10.87 6.32,12C6.31,13.15 6.44,14 6.69,14.54C6.95,15.1 7.31,15.37 7.77,15.37C8.69,15.37 9.16,14.24 9.17,12C9.17,9.77 8.7,8.65 7.75,8.63M13.33,17V15.22L13.76,15.24L14.3,15.22L15.34,15.03C15.68,14.92 16,14.78 16.26,14.58C16.59,14.35 16.86,14.08 17.07,13.76C17.29,13.45 17.44,13.12 17.53,12.78L17.5,12.77C17.05,13.19 16.38,13.4 15.47,13.41C14.62,13.4 13.91,13.15 13.34,12.65C12.77,12.15 12.5,11.43 12.46,10.5C12.47,9.5 12.81,8.69 13.47,8.03C14.14,7.37 15,7.03 16.12,7C17.37,7.04 18.29,7.45 18.88,8.24C19.47,9 19.76,10 19.76,11.19C19.75,12.15 19.61,13 19.32,13.76C19.03,14.5 18.64,15.13 18.12,15.64C17.66,16.06 17.11,16.38 16.47,16.61C15.83,16.83 15.12,16.96 14.34,17H13.33M16.06,8.63C15.65,8.64 15.32,8.8 15.06,9.11C14.81,9.42 14.68,9.84 14.68,10.36C14.68,10.8 14.8,11.16 15.03,11.46C15.27,11.77 15.63,11.92 16.11,11.93C16.43,11.93 16.7,11.86 16.92,11.74C17.14,11.61 17.3,11.46 17.41,11.28C17.5,11.17 17.53,10.97 17.53,10.71C17.54,10.16 17.43,9.69 17.2,9.28C16.97,8.87 16.59,8.65 16.06,8.63M9.25,5L12.5,1.75L15.75,5H9.25M15.75,19L12.5,22.25L9.25,19H15.75Z" Fill="Black" />
                                     </Canvas>
                                 </Viewbox>
-                                <TextBox x:Name="ContactNumber" Controls:TextBoxHelper.Watermark="Enter Text" BorderBrush="CornflowerBlue" HorizontalContentAlignment="Center" BorderThickness="2" FontSize="20" Width="350"/>
+                                <ComboBox x:Name="QuantityType" ToolTip="Position"
+                                          ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" SelectedValue="{Binding SelectedEmployee_PositionName}"
+                                          IsSynchronizedWithCurrentItem="True" BorderBrush="CornflowerBlue" BorderThickness="2" FontSize="20" Width="350"
+                                          Controls:TextBoxHelper.Watermark="Select Value" HorizontalContentAlignment="Center"/>
                             </WrapPanel>
                         </WrapPanel>
 
